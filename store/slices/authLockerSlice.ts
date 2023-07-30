@@ -3,7 +3,7 @@ import type {Locker} from '../../types/locker';
 import {loginLocker} from '../thunks/authLocker';
 
 interface AuthLockerState {
-  locker: Locker | {};
+  locker: Locker | null;
   isLoading: boolean;
   error: null | {message: string};
   isAdmin: boolean;
@@ -11,7 +11,7 @@ interface AuthLockerState {
 }
 
 const initialState: AuthLockerState = {
-  locker: {},
+  locker: null,
   isLoading: false,
   error: null,
   isAdmin: false,

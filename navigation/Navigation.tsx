@@ -11,7 +11,8 @@ const Navigation = (): JSX.Element => {
 
   return (
     <NavigationContainer>
-      {!isAuthenticated ? <UnauthenticatedStack /> : <AuthenticatedStack />}
+      {!isAuthenticated && <UnauthenticatedStack />}
+      {isAuthenticated && !isAdmin && <AuthenticatedStack />}
       {isAuthenticated && isAdmin && <AuthenticatedAdminStack />}
     </NavigationContainer>
   );

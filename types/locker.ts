@@ -13,6 +13,7 @@ export interface Locker {
   classrom: string;
   createdAt: Date;
   email: string;
+  password: string;
   img: string;
   privacy: Privacy.Public | Privacy.Private;
   role: Role.Admin | Role.User;
