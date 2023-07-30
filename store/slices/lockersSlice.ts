@@ -4,13 +4,13 @@ import type {Locker} from '../../types/locker';
 interface LockersState {
   lockers: Locker[];
   isFetching: boolean;
-  error: boolean;
+  error: null | {};
 }
 
 const initialState: LockersState = {
   lockers: [],
   isFetching: false,
-  error: false,
+  error: null,
 };
 
 const lockersSlice = createSlice({

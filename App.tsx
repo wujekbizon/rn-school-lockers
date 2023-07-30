@@ -1,22 +1,18 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import Navigation from './navigation/Navigation';
 
-function App(): JSX.Element {
-  return (
-    <SafeAreaView style={{flex: 1}}>
-      <View style={styles.container}>
-        <Text style={styles.text}>SchoolLockers</Text>
-      </View>
-    </SafeAreaView>
-  );
-}
+const App = (): JSX.Element => {
+  return <Navigation />;
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'white',
   },
   text: {
     color: 'black',
