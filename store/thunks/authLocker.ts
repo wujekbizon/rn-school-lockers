@@ -5,7 +5,6 @@ import {Locker} from '../../types/locker';
 
 interface ValidationErrors {
   message: string;
-  field_errors: Record<string, string>;
 }
 
 interface UpdateLockerResponse {
@@ -20,7 +19,7 @@ export const loginLocker = createAsyncThunk<
   {
     rejectValue: ValidationErrors;
   }
->('locker/auth', async (data, {rejectWithValue}) => {
+>('locker/login', async (data, thunkApi) => {
   try {
     const response = await axios.post<UpdateLockerResponse>(
       'http://3.127.37.237:5100/api/v1/lockers/login',
@@ -33,6 +32,30 @@ export const loginLocker = createAsyncThunk<
     if (!error.response) {
       throw err;
     }
-    return rejectWithValue(error.response.data);
+    return thunkApi.rejectWithValue(error.response.data);
+  }
+});
+
+export const logoutLocker = createAsyncThunk<
+  {
+    rejectValue: ValidationErrors;
+  },
+  void,
+  {
+    rejectValue: ValidationErrors;
+  }
+>('locker/logout', async (__, thunkApi) => {
+  try {
+    const response = await axios.get(
+      'http://3.127.37.237:5100/api/v1/lockers/logout',
+    );
+    console.log(response.data);
+    return response.data;
+  } catch (err: any) {
+    let error: AxiosError<ValidationErrors> = err;
+    if (!error.response) {
+      throw err;
+    }
+    return thunkApi.rejectWithValue(error.response.data);
   }
 });

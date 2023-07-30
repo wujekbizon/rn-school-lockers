@@ -1,17 +1,33 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {IconButton} from '../components';
+import {useAppDispatch, logoutLocker} from '../store/store';
 import {LockerDashboard} from '../screens';
+import {INDUSTRIAL_COLORS} from '../constants/style';
+import Toast from 'react-native-toast-message';
+
 const Stack = createNativeStackNavigator();
 
 const AuthenticatedStack = () => {
+  const dispatch = useAppDispatch();
+
   return (
     <Stack.Navigator
-    // screenOptions={{
-    //   headerStyle: { backgroundColor: Colors.primary500 },
-    //   headerTintColor: 'white',
-    //   contentStyle: { backgroundColor: Colors.primary100 },
-    //   headerRight: ({ tintColor }) => <IconButton icon="exit" size={24} color={tintColor} onPress={logout} />,
-    // }}
-    >
+      screenOptions={{
+        headerStyle: {backgroundColor: INDUSTRIAL_COLORS.primary500},
+        headerTintColor: 'white',
+        contentStyle: {backgroundColor: INDUSTRIAL_COLORS.gray600},
+        headerRight: ({tintColor}) => (
+          <IconButton
+            icon="log-out-outline"
+            color={tintColor}
+            size={24}
+            onPress={() => {
+              dispatch(logoutLocker());
+              Toast.show({type: 'success', text1: 'Successfully logged out!'});
+            }}
+          />
+        ),
+      }}>
       <Stack.Screen name="Locker" component={LockerDashboard} />
     </Stack.Navigator>
   );

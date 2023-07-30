@@ -10,16 +10,16 @@ const LoginLocker = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const admin = {
-    email: 'greg@gregr.com',
+    email: 'greg@greg.com',
     password: 'Password1234!',
   };
   const user = {
-    email: 'test2@test.com',
+    email: 'test2@tes.com',
     password: 'Password1234!',
   };
 
   const loginLockerHandler = () => {
-    dispatch(loginLocker(admin));
+    dispatch(loginLocker(user));
   };
 
   useEffect(() => {
