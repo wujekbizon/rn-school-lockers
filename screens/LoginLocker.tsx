@@ -1,12 +1,13 @@
 import {useEffect} from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
 import {useTypedSelector} from '../hooks/useTypedSelector';
-import {useAppDispatch, loginLocker} from '../store/store';
+import {useAppDispatch} from '../store/store';
+import {loginLocker} from '../store/thunks/loginLocker';
 import Toast from 'react-native-toast-message';
 import {LoadingOverlay} from '../components';
 
 const LoginLocker = (): JSX.Element => {
-  const {isLoading, error} = useTypedSelector(state => state.authLocker);
+  const {isLoading, error} = useTypedSelector(state => state.lockers);
   const dispatch = useAppDispatch();
 
   const admin = {
@@ -14,7 +15,7 @@ const LoginLocker = (): JSX.Element => {
     password: 'Password1234!',
   };
   const user = {
-    email: 'test2@tes.com',
+    email: 'test2@test.com',
     password: 'Password1234!',
   };
 

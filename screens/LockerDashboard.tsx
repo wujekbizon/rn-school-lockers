@@ -4,12 +4,14 @@ import {useTypedSelector} from '../hooks/useTypedSelector';
 import Toast from 'react-native-toast-message';
 
 const LockerDashboard = () => {
-  const {locker, isAuthenticated} = useTypedSelector(state => state.authLocker);
+  const {currentLocker, isAuthenticated} = useTypedSelector(
+    state => state.lockers,
+  );
 
   useEffect(() => {
     Toast.show({
       type: 'success',
-      text1: `Welcome back ${locker?.student}`,
+      text1: `Welcome back ${currentLocker?.student}`,
     });
   }, [isAuthenticated]);
 
