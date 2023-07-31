@@ -1,6 +1,6 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import axios from 'axios';
 import type {AxiosError} from 'axios';
+import {lockersInstance} from '../../api/axiosInstances';
 import type {ValidationErrors} from '../../types/lockersState';
 
 export const logoutLocker = createAsyncThunk<
@@ -13,9 +13,7 @@ export const logoutLocker = createAsyncThunk<
   }
 >('locker/logout', async (__, thunkApi) => {
   try {
-    const response = await axios.get(
-      'http://3.127.37.237:5100/api/v1/lockers/logout',
-    );
+    const response = await lockersInstance.get('/logout');
     console.log(response.data);
     return response.data;
   } catch (err: any) {

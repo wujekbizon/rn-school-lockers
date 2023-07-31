@@ -1,10 +1,11 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {IconButton} from '../components';
-import {useAppDispatch} from '../store/store';
+import Toast from 'react-native-toast-message';
+import {useAppDispatch} from '../hooks/useAppDispatch';
 import {logoutLocker} from '../store/thunks/logoutLocker';
+
+import {IconButton} from '../components';
 import {LockerDashboard} from '../screens';
 import {INDUSTRIAL_COLORS} from '../constants/style';
-import Toast from 'react-native-toast-message';
 
 const Stack = createNativeStackNavigator();
 

@@ -1,6 +1,6 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import axios from 'axios';
 import type {AxiosError} from 'axios';
+import {lockersInstance} from '../../api/axiosInstances';
 import {
   Locker,
   ValidationErrors,
@@ -15,11 +15,10 @@ export const loginLocker = createAsyncThunk<
   }
 >('locker/login', async (data, thunkApi) => {
   try {
-    const response = await axios.post<UpdateLockerResponse>(
-      'http://3.127.37.237:5100/api/v1/lockers/login',
+    const response = await lockersInstance.post<UpdateLockerResponse>(
+      '/login',
       data,
     );
-
     return response.data;
   } catch (err: any) {
     let error: AxiosError<ValidationErrors> = err;

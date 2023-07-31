@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
 import {useTypedSelector} from '../hooks/useTypedSelector';
-import {useAppDispatch} from '../store/store';
+import {useAppDispatch} from '../hooks/useAppDispatch';
 import {loginLocker} from '../store/thunks/loginLocker';
 import Toast from 'react-native-toast-message';
 import {LoadingOverlay} from '../components';
