@@ -1,10 +1,10 @@
 import {useEffect} from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {useTypedSelector} from '../hooks/useTypedSelector';
 import {useAppDispatch} from '../hooks/useAppDispatch';
 import {loginLocker} from '../store/thunks/loginLocker';
 import Toast from 'react-native-toast-message';
-import {LoadingOverlay} from '../components';
+import {LoadingOverlay, AuthContent} from '../components';
 
 const LoginLocker = (): JSX.Element => {
   const {isLoading, error} = useTypedSelector(state => state.lockers);
@@ -38,9 +38,7 @@ const LoginLocker = (): JSX.Element => {
         // Loading indicator I might replace with skeleton loader
         <LoadingOverlay message="Logging you in..." />
       ) : (
-        <View style={styles.rootContainer}>
-          <Button title="Login Locker" onPress={loginLockerHandler} />
-        </View>
+        <AuthContent isLogin />
       )}
     </>
   );

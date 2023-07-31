@@ -13,7 +13,7 @@ const UnauthenticatedStack = () => {
         contentStyle: {backgroundColor: INDUSTRIAL_COLORS.gray200},
         animation: 'slide_from_bottom',
       }}>
-      <Stack.Screen name="LoginLocker" component={LoginLocker} />
+      <Stack.Screen name="Login" component={LoginLocker} />
       <Stack.Screen name="Register" component={RegisterLocker} />
     </Stack.Navigator>
   );

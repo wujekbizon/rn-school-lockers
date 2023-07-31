@@ -9,14 +9,14 @@ export enum Role {
 }
 
 export interface Locker {
-  _id: string;
-  classrom: string;
-  createdAt: Date;
+  _id?: string;
+  classroom: string;
+  createdAt?: Date;
   email: string;
   password: string;
-  img: string;
-  privacy: Privacy.Public | Privacy.Private;
-  role: Role.Admin | Role.User;
+  img?: string;
+  privacy?: Privacy.Public | Privacy.Private;
+  role?: Role.Admin | Role.User;
   schoolName: string;
   student: string;
   title: string;
@@ -38,5 +38,4 @@ export interface ValidationErrors {
 export interface UpdateLockerResponse {
   locker: Locker;
   message: string;
-  success: boolean;
 }

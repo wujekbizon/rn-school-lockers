@@ -2,6 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 import type {AuthLockerState} from '../../types/lockersState';
 import {loginLocker} from '../thunks/loginLocker';
 import {logoutLocker} from '../thunks/logoutLocker';
+import {registerLocker} from '../thunks/registerLocker';
 
 const initialState: AuthLockerState = {
   lockers: [],
@@ -55,6 +56,28 @@ const lockerSlice = createSlice({
     });
     builder.addCase(
       logoutLocker.rejected,
+      (state: AuthLockerState, {payload}) => {
+        state.isLoading = false;
+        if (!payload) {
+          return;
+        }
+        state.error = payload;
+      },
+    );
+
+    // register locker
+    builder.addCase(registerLocker.pending, (state: AuthLockerState) => {
+      state.isLoading = true;
+    });
+    builder.addCase(
+      registerLocker.fulfilled,
+      (state: AuthLockerState, {payload}) => {
+        state.isLoading = false;
+        state.lockers.push(payload.locker);
+      },
+    );
+    builder.addCase(
+      registerLocker.rejected,
       (state: AuthLockerState, {payload}) => {
         state.isLoading = false;
         if (!payload) {
