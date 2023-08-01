@@ -22,3 +22,8 @@ export type AuthFormProps = {
     classroom: boolean;
   };
 };
+
+export type AuthContentProps = {
+  isLogin: boolean;
+  onAuth: (locker: Locker) => void;
+};

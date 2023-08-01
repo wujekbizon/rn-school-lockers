@@ -14,6 +14,6 @@ export const verifyPassword = (password: string) => {
 
 export const isSimpleString = (str: string) => {
   const strTrim = str.trim();
-  const regex = /^[a-zA-Z0-9\w]+$/;
+  const regex = /^[a-zA-Z0-9\w\s]+$/;
   return regex.test(strTrim);
 };

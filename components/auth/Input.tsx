@@ -38,14 +38,15 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   labelInvalid: {
-    color: INDUSTRIAL_COLORS.error500,
+    color: INDUSTRIAL_COLORS.error800,
   },
   input: {
     paddingVertical: 8,
     paddingHorizontal: 6,
-    backgroundColor: INDUSTRIAL_COLORS.primary100,
+    backgroundColor: INDUSTRIAL_COLORS.gray200,
     borderRadius: 4,
     fontSize: 16,
+    color: INDUSTRIAL_COLORS.gray800,
   },
   inputInvalid: {
     backgroundColor: INDUSTRIAL_COLORS.error100,

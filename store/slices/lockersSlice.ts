@@ -11,6 +11,7 @@ const initialState: AuthLockerState = {
   error: null,
   isAdmin: false,
   isAuthenticated: false,
+  isRegistered: false,
 };
 
 const lockerSlice = createSlice({
@@ -74,6 +75,7 @@ const lockerSlice = createSlice({
       (state: AuthLockerState, {payload}) => {
         state.isLoading = false;
         state.lockers.push(payload.locker);
+        state.isRegistered = true;
       },
     );
     builder.addCase(

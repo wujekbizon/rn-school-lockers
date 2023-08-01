@@ -9,7 +9,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     Toast.show({
       type: 'success',
-      text1: `Admin dashboard ready, Mr.${currentLocker?.student}`,
+      text1: `${currentLocker?.student} admin dashboard.`,
     });
   }, [isAdmin]);
   return (

@@ -5,22 +5,14 @@ import {useAppDispatch} from '../hooks/useAppDispatch';
 import {loginLocker} from '../store/thunks/loginLocker';
 import Toast from 'react-native-toast-message';
 import {LoadingOverlay, AuthContent} from '../components';
+import {Locker} from '../types/lockersState';
 
 const LoginLocker = (): JSX.Element => {
   const {isLoading, error} = useTypedSelector(state => state.lockers);
   const dispatch = useAppDispatch();
 
-  const admin = {
-    email: 'greg@greg.com',
-    password: 'Password1234!',
-  };
-  const user = {
-    email: 'test2@test.com',
-    password: 'Password1234!',
-  };
-
-  const loginLockerHandler = () => {
-    dispatch(loginLocker(user));
+  const loginLockerHandler = (credentials: Locker) => {
+    dispatch(loginLocker(credentials));
   };
 
   useEffect(() => {
@@ -38,7 +30,7 @@ const LoginLocker = (): JSX.Element => {
         // Loading indicator I might replace with skeleton loader
         <LoadingOverlay message="Logging you in..." />
       ) : (
-        <AuthContent isLogin />
+        <AuthContent isLogin onAuth={loginLockerHandler} />
       )}
     </>
   );

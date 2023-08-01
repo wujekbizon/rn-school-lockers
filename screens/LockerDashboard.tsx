@@ -11,7 +11,7 @@ const LockerDashboard = () => {
   useEffect(() => {
     Toast.show({
       type: 'success',
-      text1: `Welcome back ${currentLocker?.student}`,
+      text1: `Welcome ${currentLocker?.student}`,
     });
   }, [isAuthenticated]);
 

@@ -29,6 +29,7 @@ export interface AuthLockerState {
   error: null | {message: string};
   isAdmin: boolean;
   isAuthenticated: boolean;
+  isRegistered: boolean;
 }
 
 export interface ValidationErrors {

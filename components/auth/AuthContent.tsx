@@ -1,19 +1,22 @@
 import {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {useTypedSelector} from '../../hooks/useTypedSelector';
 import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import type {Locker} from '../../types/lockersState';
+import type {AuthContentProps} from '../../types/auth';
+import Toast from 'react-native-toast-message';
 import {FlatButton, AuthForm} from '../index';
 import {
   verifyEmail,
   verifyPassword,
   isSimpleString,
 } from '../../utils/verifyCredentials';
-import Toast from 'react-native-toast-message';
 
 import {INDUSTRIAL_COLORS} from '../../constants/style';
 
-const AuthContent = ({isLogin}: {isLogin: boolean}) => {
+const AuthContent = ({isLogin, onAuth}: AuthContentProps) => {
+  const {isRegistered} = useTypedSelector(state => state.lockers);
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   const [credentialsInvalid, setCredentialsInvalid] = useState({
     email: false,
@@ -43,13 +46,15 @@ const AuthContent = ({isLogin}: {isLogin: boolean}) => {
     const classroomIsValid = isSimpleString(classroom);
 
     if (
-      !isLogin ||
       !emailIsValid ||
       !passwordIsValid ||
-      !titleIsValid ||
-      !studentIsValid ||
-      !schoolNameIsValid ||
-      !classroomIsValid
+      (!isLogin &&
+        (!emailIsValid ||
+          !passwordIsValid ||
+          !titleIsValid ||
+          !studentIsValid ||
+          !schoolNameIsValid ||
+          !classroomIsValid))
     ) {
       Toast.show({
         type: 'error',
@@ -66,8 +71,8 @@ const AuthContent = ({isLogin}: {isLogin: boolean}) => {
       });
       return;
     }
-    // TODO
-    // register new locker logic here
+
+    onAuth({email, password, title, student, schoolName, classroom});
   };
 
   return (
@@ -78,9 +83,11 @@ const AuthContent = ({isLogin}: {isLogin: boolean}) => {
         credentialsInvalid={credentialsInvalid}
       />
       <View style={styles.buttons}>
-        <FlatButton onPress={switchAuthModeHandler}>
-          {isLogin ? 'Register a new locker' : 'Log in instead'}
-        </FlatButton>
+        {!isRegistered && (
+          <FlatButton onPress={switchAuthModeHandler}>
+            {isLogin ? 'Register a new locker' : 'Log in instead'}
+          </FlatButton>
+        )}
       </View>
     </View>
   );
