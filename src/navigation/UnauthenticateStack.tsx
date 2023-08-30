@@ -1,6 +1,7 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {LoginLocker, RegisterLocker} from '../screens';
 import {INDUSTRIAL_COLORS} from '../constants/style';
+import Splash from '../screens/Splash';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +14,13 @@ const UnauthenticatedStack = () => {
         contentStyle: {backgroundColor: INDUSTRIAL_COLORS.gray800},
         animation: 'slide_from_bottom',
       }}>
+      <Stack.Screen
+        name="Splash"
+        component={Splash}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stack.Screen
         name="Login"
         component={LoginLocker}

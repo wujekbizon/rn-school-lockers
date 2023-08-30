@@ -11,9 +11,10 @@ const AdminDashboard = () => {
       type: 'success',
       text1: `${currentLocker?.student} admin dashboard.`,
     });
-  }, [isAdmin]);
+  }, [isAdmin]); // todo do I need to show this on every rerender
   return (
     <View>
+      <Text>AdminDashboard</Text>
       <Text>AdminDashboard</Text>
     </View>
   );

@@ -14,6 +14,21 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-SchoolLockers-SchoolLockersTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-SchoolLockers-SchoolLockersTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		5041EDEA93784A558E0F5B90 /* Gluten Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 024623AC13F047B893E48581 /* Gluten Black.ttf */; };
+		1A76B11BE35140F2AA3F48A9 /* Gluten Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7314B517B58C4278BE14FA38 /* Gluten Bold.ttf */; };
+		2A58C782C41C44BFBFB9ACA8 /* Gluten ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92D7AE1429F44600B4B1E4A7 /* Gluten ExtraBold.ttf */; };
+		AAFBA946C9674174AFF904C2 /* Gluten ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07FD853D161240C489A43916 /* Gluten ExtraLight.ttf */; };
+		B57FA663FF6A4C4CAC6A5C12 /* Gluten Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFD530FDD6914108B1BF64E1 /* Gluten Light.ttf */; };
+		034E2DC17CD847CD85EBFD78 /* Gluten Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB558DCD061C4726A113822B /* Gluten Medium.ttf */; };
+		B0C6B64075834D6A8DC76C6E /* Gluten Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A28C2C10B44F9AA34077E /* Gluten Regular.ttf */; };
+		2C45303E7A1343D18007CBBD /* Gluten SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D110F719944BF8952449ED /* Gluten SemiBold.ttf */; };
+		E5A3FED8702C41D9A5C104CA /* Gluten Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E36D7C97BEE348478A24D76F /* Gluten Thin.ttf */; };
+		F4330AA9D0C7452CA443001E /* Open Sans Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E0013ED9294461B8C4C442E /* Open Sans Bold.ttf */; };
+		BADA81A3FFF44C149FCBB36F /* Open Sans ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E20F0082CEFA4DE292B2667C /* Open Sans ExtraBold.ttf */; };
+		6B4C5BB464B948D380F4722B /* Open Sans Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194484C711D74303BA34F0EE /* Open Sans Light.ttf */; };
+		02D63FD87AFF4037B3A9C2BE /* Open Sans Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2085DF511AB3460BA86619CB /* Open Sans Medium.ttf */; };
+		5CAC124806AF438FA26AD8C0 /* Open Sans Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8097BE80488C4B5DA0BE44E1 /* Open Sans Regular.ttf */; };
+		F1BF5BCEAD144C5B98B472DD /* Open Sans SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16E7668B5E734F26B1DC154C /* Open Sans SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +59,21 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SchoolLockers/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-SchoolLockers-SchoolLockersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolLockers-SchoolLockersTests.release.xcconfig"; path = "Target Support Files/Pods-SchoolLockers-SchoolLockersTests/Pods-SchoolLockers-SchoolLockersTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		024623AC13F047B893E48581 /* Gluten Black.ttf */ = {isa = PBXFileReference; name = "Gluten Black.ttf"; path = "../assets/fonts/Gluten Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7314B517B58C4278BE14FA38 /* Gluten Bold.ttf */ = {isa = PBXFileReference; name = "Gluten Bold.ttf"; path = "../assets/fonts/Gluten Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		92D7AE1429F44600B4B1E4A7 /* Gluten ExtraBold.ttf */ = {isa = PBXFileReference; name = "Gluten ExtraBold.ttf"; path = "../assets/fonts/Gluten ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		07FD853D161240C489A43916 /* Gluten ExtraLight.ttf */ = {isa = PBXFileReference; name = "Gluten ExtraLight.ttf"; path = "../assets/fonts/Gluten ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DFD530FDD6914108B1BF64E1 /* Gluten Light.ttf */ = {isa = PBXFileReference; name = "Gluten Light.ttf"; path = "../assets/fonts/Gluten Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CB558DCD061C4726A113822B /* Gluten Medium.ttf */ = {isa = PBXFileReference; name = "Gluten Medium.ttf"; path = "../assets/fonts/Gluten Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2D9A28C2C10B44F9AA34077E /* Gluten Regular.ttf */ = {isa = PBXFileReference; name = "Gluten Regular.ttf"; path = "../assets/fonts/Gluten Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		47D110F719944BF8952449ED /* Gluten SemiBold.ttf */ = {isa = PBXFileReference; name = "Gluten SemiBold.ttf"; path = "../assets/fonts/Gluten SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E36D7C97BEE348478A24D76F /* Gluten Thin.ttf */ = {isa = PBXFileReference; name = "Gluten Thin.ttf"; path = "../assets/fonts/Gluten Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8E0013ED9294461B8C4C442E /* Open Sans Bold.ttf */ = {isa = PBXFileReference; name = "Open Sans Bold.ttf"; path = "../assets/fonts/Open Sans Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E20F0082CEFA4DE292B2667C /* Open Sans ExtraBold.ttf */ = {isa = PBXFileReference; name = "Open Sans ExtraBold.ttf"; path = "../assets/fonts/Open Sans ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		194484C711D74303BA34F0EE /* Open Sans Light.ttf */ = {isa = PBXFileReference; name = "Open Sans Light.ttf"; path = "../assets/fonts/Open Sans Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2085DF511AB3460BA86619CB /* Open Sans Medium.ttf */ = {isa = PBXFileReference; name = "Open Sans Medium.ttf"; path = "../assets/fonts/Open Sans Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8097BE80488C4B5DA0BE44E1 /* Open Sans Regular.ttf */ = {isa = PBXFileReference; name = "Open Sans Regular.ttf"; path = "../assets/fonts/Open Sans Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		16E7668B5E734F26B1DC154C /* Open Sans SemiBold.ttf */ = {isa = PBXFileReference; name = "Open Sans SemiBold.ttf"; path = "../assets/fonts/Open Sans SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +152,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				E177588B0699455D9A845BE2 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +178,29 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		E177588B0699455D9A845BE2 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				024623AC13F047B893E48581 /* Gluten Black.ttf */,
+				7314B517B58C4278BE14FA38 /* Gluten Bold.ttf */,
+				92D7AE1429F44600B4B1E4A7 /* Gluten ExtraBold.ttf */,
+				07FD853D161240C489A43916 /* Gluten ExtraLight.ttf */,
+				DFD530FDD6914108B1BF64E1 /* Gluten Light.ttf */,
+				CB558DCD061C4726A113822B /* Gluten Medium.ttf */,
+				2D9A28C2C10B44F9AA34077E /* Gluten Regular.ttf */,
+				47D110F719944BF8952449ED /* Gluten SemiBold.ttf */,
+				E36D7C97BEE348478A24D76F /* Gluten Thin.ttf */,
+				8E0013ED9294461B8C4C442E /* Open Sans Bold.ttf */,
+				E20F0082CEFA4DE292B2667C /* Open Sans ExtraBold.ttf */,
+				194484C711D74303BA34F0EE /* Open Sans Light.ttf */,
+				2085DF511AB3460BA86619CB /* Open Sans Medium.ttf */,
+				8097BE80488C4B5DA0BE44E1 /* Open Sans Regular.ttf */,
+				16E7668B5E734F26B1DC154C /* Open Sans SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +298,21 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				5041EDEA93784A558E0F5B90 /* Gluten Black.ttf in Resources */,
+				1A76B11BE35140F2AA3F48A9 /* Gluten Bold.ttf in Resources */,
+				2A58C782C41C44BFBFB9ACA8 /* Gluten ExtraBold.ttf in Resources */,
+				AAFBA946C9674174AFF904C2 /* Gluten ExtraLight.ttf in Resources */,
+				B57FA663FF6A4C4CAC6A5C12 /* Gluten Light.ttf in Resources */,
+				034E2DC17CD847CD85EBFD78 /* Gluten Medium.ttf in Resources */,
+				B0C6B64075834D6A8DC76C6E /* Gluten Regular.ttf in Resources */,
+				2C45303E7A1343D18007CBBD /* Gluten SemiBold.ttf in Resources */,
+				E5A3FED8702C41D9A5C104CA /* Gluten Thin.ttf in Resources */,
+				F4330AA9D0C7452CA443001E /* Open Sans Bold.ttf in Resources */,
+				BADA81A3FFF44C149FCBB36F /* Open Sans ExtraBold.ttf in Resources */,
+				6B4C5BB464B948D380F4722B /* Open Sans Light.ttf in Resources */,
+				02D63FD87AFF4037B3A9C2BE /* Open Sans Medium.ttf in Resources */,
+				5CAC124806AF438FA26AD8C0 /* Open Sans Regular.ttf in Resources */,
+				F1BF5BCEAD144C5B98B472DD /* Open Sans SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

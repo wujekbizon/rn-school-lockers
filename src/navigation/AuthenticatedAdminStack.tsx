@@ -1,10 +1,11 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {AdminDashboard} from '../screens';
+import AdminTabs from './AdminTabs';
 import Toast from 'react-native-toast-message';
 import {useAppDispatch} from '../hooks/useAppDispatch';
 import {logoutLocker} from '../store/thunks/logoutLocker';
 import {IconButton} from '../components';
 import {INDUSTRIAL_COLORS} from '../constants/style';
+
 const Stack = createNativeStackNavigator();
 
 const AuthenticatedAdminStack = () => {
@@ -27,7 +28,7 @@ const AuthenticatedAdminStack = () => {
           />
         ),
       }}>
-      <Stack.Screen name="Admin" component={AdminDashboard} />
+      <Stack.Screen name="Admin" component={AdminTabs} />
     </Stack.Navigator>
   );
 };

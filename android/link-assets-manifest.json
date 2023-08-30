@@ -1,0 +1,65 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Gluten Black.ttf",
+      "sha1": "15f5fc4f2c6b04a1f7e5d8574f20fef3a0699a5f"
+    },
+    {
+      "path": "assets/fonts/Gluten Bold.ttf",
+      "sha1": "3f966b297327b498b8991b86ee60a5dfedf0ddca"
+    },
+    {
+      "path": "assets/fonts/Gluten ExtraBold.ttf",
+      "sha1": "715b50f9e400893c9818c6f1a74fa618b78bff59"
+    },
+    {
+      "path": "assets/fonts/Gluten ExtraLight.ttf",
+      "sha1": "9156cd1397e1a401aef2b983b036c1e753cd86f2"
+    },
+    {
+      "path": "assets/fonts/Gluten Light.ttf",
+      "sha1": "bfe9884d42f159aa86ffaa3bf04eb03f1ac2c0f9"
+    },
+    {
+      "path": "assets/fonts/Gluten Medium.ttf",
+      "sha1": "b947e82c2b4bd90b383a131911e3457809e2141f"
+    },
+    {
+      "path": "assets/fonts/Gluten Regular.ttf",
+      "sha1": "3dacd9520526c5bc55a6f366b351260ac9ad245b"
+    },
+    {
+      "path": "assets/fonts/Gluten SemiBold.ttf",
+      "sha1": "5f3f180f370d8a816d4016e08bae14335052a692"
+    },
+    {
+      "path": "assets/fonts/Gluten Thin.ttf",
+      "sha1": "f43e7df347728e7dbe27d0311e625f8c4f3eb954"
+    },
+    {
+      "path": "assets/fonts/Open Sans Bold.ttf",
+      "sha1": "1f22568081c57eb8980ccbec86decd452f35d6b0"
+    },
+    {
+      "path": "assets/fonts/Open Sans ExtraBold.ttf",
+      "sha1": "e5a8e33f1bb3c2fbcf9f755381aff233127ca788"
+    },
+    {
+      "path": "assets/fonts/Open Sans Light.ttf",
+      "sha1": "5a52715a13bdc78f172f75f0690cfd5a2b1a84a0"
+    },
+    {
+      "path": "assets/fonts/Open Sans Medium.ttf",
+      "sha1": "08021b2494bdb87677e7a0ac061e66436a0850ef"
+    },
+    {
+      "path": "assets/fonts/Open Sans Regular.ttf",
+      "sha1": "b4596a8e11ee5b6331f2fecf656a53f61677b56e"
+    },
+    {
+      "path": "assets/fonts/Open Sans SemiBold.ttf",
+      "sha1": "96b49e2ee8d4d25996146841eaaebdbb5894ed33"
+    }
+  ]
+}

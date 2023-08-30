@@ -14,7 +14,7 @@ const RegisterLocker = () => {
     state => state.lockers,
   );
   const dispatch = useAppDispatch();
-  const naviagation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
   const registerLockerHandler = (locker: Locker) => {
     dispatch(registerLocker(locker));
@@ -23,7 +23,7 @@ const RegisterLocker = () => {
   useEffect(() => {
     if (!isLoading && !error && isRegistered) {
       console.log(isRegistered);
-      naviagation.replace('Login');
+      navigation.replace('Login');
       Toast.show({
         type: 'success',
         text1: 'Successfully register locker!',
