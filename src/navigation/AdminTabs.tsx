@@ -1,5 +1,11 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {AdminDashboard, AdminSideMenu} from '../screens';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {
+  AdminDashboard,
+  AdminSideMenu,
+  AdminUsers,
+  AdminSettings,
+} from '../screens';
 
 const Tab = createBottomTabNavigator();
 
@@ -11,6 +17,32 @@ const AdminTabs = () => {
         component={AdminDashboard}
         options={{
           headerShown: false,
+          tabBarLabel: 'Dashboard',
+          tabBarIcon: ({color, size}) => (
+            <Icon color={color} size={size} name="home" />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="AdminUsers"
+        component={AdminUsers}
+        options={{
+          headerShown: false,
+          tabBarLabel: 'Users',
+          tabBarIcon: ({color, size}) => (
+            <Icon color={color} size={size} name="people-sharp" />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="AdminSettings"
+        component={AdminSettings}
+        options={{
+          headerShown: false,
+          tabBarLabel: 'Settings',
+          tabBarIcon: ({color, size}) => (
+            <Icon color={color} size={size} name="settings-sharp" />
+          ),
         }}
       />
       <Tab.Screen
@@ -18,6 +50,10 @@ const AdminTabs = () => {
         component={AdminSideMenu}
         options={{
           headerShown: false,
+          tabBarLabel: 'Menu',
+          tabBarIcon: ({color, size}) => (
+            <Icon color={color} size={size} name="menu" />
+          ),
         }}
       />
     </Tab.Navigator>

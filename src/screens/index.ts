@@ -3,6 +3,8 @@ import RegisterLocker from './RegisterLocker';
 import AdminDashboard from './AdminDashboard';
 import LockerDashboard from './LockerDashboard';
 import AdminSideMenu from './AdminSideMenu';
+import AdminUsers from './AdminUsers';
+import AdminSettings from './AdminSettings';
 
 export {
   LoginLocker,
@@ -10,4 +12,6 @@ export {
   AdminDashboard,
   LockerDashboard,
   AdminSideMenu,
+  AdminUsers,
+  AdminSettings,
 };
