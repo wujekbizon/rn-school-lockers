@@ -108,6 +108,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.35,
     shadowRadius: 4,
   },
+  backgroundImage: {
+    flex: 1,
+  },
   buttons: {
     marginTop: 8,
   },

@@ -1,5 +1,6 @@
 import {useEffect} from 'react';
 import {StyleSheet} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import {useAppDispatch} from '../hooks/useAppDispatch';
 import {useTypedSelector} from '../hooks/useTypedSelector';
 import {LoadingOverlay, AuthContent} from '../components';
@@ -8,6 +9,7 @@ import {ParamListBase, useNavigation} from '@react-navigation/native';
 import type {Locker} from '../types/lockersState';
 import Toast from 'react-native-toast-message';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {INDUSTRIAL_COLORS} from '../constants/style';
 
 const RegisterLocker = () => {
   const {isLoading, error, isRegistered} = useTypedSelector(
@@ -42,15 +44,25 @@ const RegisterLocker = () => {
   }, [error]);
 
   return (
-    <>
+    <LinearGradient
+      style={styles.rootContainer}
+      colors={[
+        INDUSTRIAL_COLORS.primary100,
+        INDUSTRIAL_COLORS.secondary200,
+        INDUSTRIAL_COLORS.secondary700,
+      ]}>
       {isLoading && !error ? (
         // Loading indicator I might replace with skeleton loader
         <LoadingOverlay message="Creating new locker..." />
       ) : (
         <AuthContent isLogin={false} onAuth={registerLockerHandler} />
       )}
-    </>
+    </LinearGradient>
   );
 };
 export default RegisterLocker;
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  rootContainer: {
+    flex: 1,
+  },
+});
