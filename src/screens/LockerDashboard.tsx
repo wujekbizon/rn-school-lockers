@@ -1,35 +1,33 @@
 import {useEffect} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView,
-  ImageBackground,
-} from 'react-native';
+import {StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import {useTypedSelector} from '../hooks/useTypedSelector';
 import Toast from 'react-native-toast-message';
-import {CustomCard} from '../components';
+import {CustomCard, SideModal} from '../components';
 import {INDUSTRIAL_COLORS, SPACERS} from '../constants/style';
 
 const LockerDashboard = () => {
   const {currentLocker} = useTypedSelector(state => state.lockers);
 
-  const avatar = `https://res.cloudinary.com/dpnig0xon/image/upload/${currentLocker.img}`;
-
   useEffect(() => {
     Toast.show({
       type: 'success',
-      text1: `Welcome ${currentLocker.student}`,
+      text1: `Welcome ${currentLocker?.student}`,
     });
   }, []);
 
   return (
     <>
+      <SideModal />
       <ScrollView style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.text}>{currentLocker.title}</Text>
-          <Image source={{uri: avatar}} alt="avatar" style={styles.image} />
+          <Text style={styles.text}>{currentLocker?.title}</Text>
+          <Image
+            source={{
+              uri: `https://res.cloudinary.com/dpnig0xon/image/upload/${currentLocker?.img}`,
+            }}
+            alt="avatar"
+            style={styles.image}
+          />
         </View>
         <CustomCard locker={currentLocker} />
       </ScrollView>

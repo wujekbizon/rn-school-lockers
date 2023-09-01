@@ -24,7 +24,6 @@ const RegisterLocker = () => {
 
   useEffect(() => {
     if (!isLoading && !error && isRegistered) {
-      console.log(isRegistered);
       navigation.replace('Login');
       Toast.show({
         type: 'success',

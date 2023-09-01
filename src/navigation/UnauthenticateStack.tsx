@@ -11,7 +11,7 @@ const UnauthenticatedStack = () => {
       screenOptions={{
         headerStyle: {backgroundColor: INDUSTRIAL_COLORS.primary500},
         headerTintColor: INDUSTRIAL_COLORS.text100,
-        headerTitleStyle: {fontFamily: 'Gluten SemiBold'},
+        headerTitleStyle: {fontFamily: 'Gluten Regular'},
         contentStyle: {backgroundColor: INDUSTRIAL_COLORS.gray800},
         animation: 'slide_from_bottom',
       }}>

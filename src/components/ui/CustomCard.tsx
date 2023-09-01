@@ -2,7 +2,7 @@ import {StyleSheet, Text, View, Platform} from 'react-native';
 import {INDUSTRIAL_COLORS, SPACERS} from '../../constants/style';
 import type {Locker} from '../../types/lockersState';
 
-const CustomCard = ({locker}: {locker: Partial<Locker>}) => {
+const CustomCard = ({locker}: {locker: Locker | null}) => {
   return (
     <View style={styles.cardContainer}>
       <View style={styles.studentInfo}>
@@ -10,22 +10,22 @@ const CustomCard = ({locker}: {locker: Partial<Locker>}) => {
           Student Name:{' '}
           <Text
             style={
-              locker.privacy === 'public'
+              locker?.privacy === 'public'
                 ? styles.publicText
                 : styles.privacyText
             }>
-            {locker.student}
+            {locker?.student}
           </Text>{' '}
         </Text>
         <Text style={styles.text}>
           Locker Status:{' '}
           <Text
             style={
-              locker.privacy === 'public'
+              locker?.privacy === 'public'
                 ? styles.publicText
                 : styles.privacyText
             }>
-            {locker.privacy}
+            {locker?.privacy}
           </Text>
         </Text>
       </View>
@@ -34,22 +34,22 @@ const CustomCard = ({locker}: {locker: Partial<Locker>}) => {
           School:{' '}
           <Text
             style={
-              locker.privacy === 'public'
+              locker?.privacy === 'public'
                 ? styles.publicText
                 : styles.privacyText
             }>
-            {locker.schoolName}
+            {locker?.schoolName}
           </Text>
         </Text>
         <Text style={styles.text}>
           Class -{' '}
           <Text
             style={
-              locker.privacy === 'public'
+              locker?.privacy === 'public'
                 ? styles.publicText
                 : styles.privacyText
             }>
-            {locker.classroom}
+            {locker?.classroom}
           </Text>{' '}
         </Text>
       </View>
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 20,
     minHeight: 200,
+    elevation: 4,
     backgroundColor: INDUSTRIAL_COLORS.secondary900,
     borderRadius: SPACERS.smBorder,
     shadowColor: INDUSTRIAL_COLORS.gray200,

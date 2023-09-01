@@ -5,7 +5,7 @@ type IconButtonType = {
   icon: string;
   color: string | undefined;
   size: number;
-  onPress: () => void;
+  onPress?: () => void;
 };
 
 const IconButton = ({icon, color, size, onPress}: IconButtonType) => {

@@ -6,10 +6,12 @@ import Toast from 'react-native-toast-message';
 import {logoutLocker} from '../../store/thunks/logoutLocker';
 import {INDUSTRIAL_COLORS} from '../../constants/style';
 import {IconButton} from '../../components';
+import {useActions} from '../../hooks/useActions';
 
 const CustomHeader = () => {
   const dispatch = useAppDispatch();
   const {currentLocker} = useTypedSelector(state => state.lockers);
+  const {openSideMenu} = useActions();
 
   return (
     <LinearGradient
@@ -26,10 +28,10 @@ const CustomHeader = () => {
         color={INDUSTRIAL_COLORS.secondary900}
         size={24}
         onPress={() => {
-          console.log('open');
+          openSideMenu();
         }}
       />
-      <Text style={styles.title}>{currentLocker.title}</Text>
+      <Text style={styles.title}>{currentLocker?.title}</Text>
       <IconButton
         icon="log-out-outline"
         color={INDUSTRIAL_COLORS.secondary900}

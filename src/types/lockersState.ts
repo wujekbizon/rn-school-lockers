@@ -24,7 +24,7 @@ export interface Locker {
 
 export interface AuthLockerState {
   lockers: Locker[];
-  currentLocker: Locker;
+  currentLocker: Locker | null;
   isLoading: boolean;
   error: null | {message: string};
   isAdmin: boolean;

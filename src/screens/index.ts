@@ -9,6 +9,7 @@ import Rumors from './Rumors';
 import LockerSettings from './LockerSettings';
 import LockerAssistant from './LockerAssistant';
 import LockerLearnPlatfrom from './LockerLearnPlatfrom';
+import LockerCalendar from './LockerCalendar';
 
 export {
   LoginLocker,
@@ -22,4 +23,5 @@ export {
   LockerSettings,
   LockerAssistant,
   LockerLearnPlatfrom,
+  LockerCalendar,
 };

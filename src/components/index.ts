@@ -7,6 +7,7 @@ import AuthForm from './auth/AuthForm';
 import AuthContent from './auth/AuthContent';
 import CustomHeader from './ui/CustomHeader';
 import CustomCard from './ui/CustomCard';
+import SideModal from './ui/SideModal';
 
 export {
   LoadingOverlay,
@@ -18,4 +19,5 @@ export {
   AuthForm,
   CustomHeader,
   CustomCard,
+  SideModal,
 };
