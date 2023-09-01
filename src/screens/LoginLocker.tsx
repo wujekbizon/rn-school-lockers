@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {useTypedSelector} from '../hooks/useTypedSelector';
 import {useAppDispatch} from '../hooks/useAppDispatch';
 import {loginLocker} from '../store/thunks/loginLocker';
@@ -40,6 +40,7 @@ export default LoginLocker;
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
+    width: '90%',
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -20,6 +20,7 @@ const Splash = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={styles.logoTitle}>Welcome to</Text>
       <Image source={Logo} style={styles.image} />
       <Text style={styles.logoTitle}>School Lockers</Text>
     </SafeAreaView>

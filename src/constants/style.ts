@@ -13,4 +13,14 @@ export const INDUSTRIAL_COLORS = {
   error200: '#FFB2A9',
   error500: '#FF7F6B',
   error800: '#E74C3C',
+  text100: '#FFFFFF',
+};
+
+export const SPACERS = {
+  smBorder: 4,
+  mBorder: 8,
+  lgBorder: 16,
+  spacer1: 10,
+  spacer2: 15,
+  spacer3: 20,
 };
