@@ -72,7 +72,7 @@ const LockerTabs = () => {
         component={LockerLearnPlatfrom}
         options={{
           headerShown: false,
-          tabBarLabel: 'Learn',
+          tabBarLabel: 'E-Learn',
           tabBarIcon: ({size}) => (
             <Icon
               color={INDUSTRIAL_COLORS.secondary900}

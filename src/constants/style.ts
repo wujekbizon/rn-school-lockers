@@ -20,7 +20,9 @@ export const SPACERS = {
   smBorder: 4,
   mBorder: 8,
   lgBorder: 16,
+  spacer0: 5,
   spacer1: 10,
   spacer2: 15,
   spacer3: 20,
+  spacer6: 40,
 };

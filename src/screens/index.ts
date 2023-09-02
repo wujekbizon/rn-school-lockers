@@ -10,6 +10,9 @@ import LockerSettings from './LockerSettings';
 import LockerAssistant from './LockerAssistant';
 import LockerLearnPlatfrom from './LockerLearnPlatfrom';
 import LockerCalendar from './LockerCalendar';
+import LockerPortfolio from './LockerPortfolio';
+import SystemMessages from './SystemMessages';
+import LockerContacts from './LockerContacts';
 
 export {
   LoginLocker,
@@ -24,4 +27,7 @@ export {
   LockerAssistant,
   LockerLearnPlatfrom,
   LockerCalendar,
+  LockerPortfolio,
+  SystemMessages,
+  LockerContacts,
 };

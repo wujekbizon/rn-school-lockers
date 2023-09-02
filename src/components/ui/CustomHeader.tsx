@@ -25,7 +25,7 @@ const CustomHeader = () => {
       style={styles.header}>
       <IconButton
         icon="menu"
-        color={INDUSTRIAL_COLORS.secondary900}
+        color={INDUSTRIAL_COLORS.text100}
         size={24}
         onPress={() => {
           openSideMenu();
@@ -34,7 +34,7 @@ const CustomHeader = () => {
       <Text style={styles.title}>{currentLocker?.title}</Text>
       <IconButton
         icon="log-out-outline"
-        color={INDUSTRIAL_COLORS.secondary900}
+        color={INDUSTRIAL_COLORS.text100}
         size={24}
         onPress={() => {
           dispatch(logoutLocker());
@@ -53,12 +53,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: 50,
+    height: 55,
     paddingHorizontal: 15,
   },
   title: {
     fontFamily: 'Gluten Regular',
     fontSize: 20,
-    color: INDUSTRIAL_COLORS.text100,
+    color: INDUSTRIAL_COLORS.secondary900,
   },
 });

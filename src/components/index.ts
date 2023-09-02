@@ -8,6 +8,9 @@ import AuthContent from './auth/AuthContent';
 import CustomHeader from './ui/CustomHeader';
 import CustomCard from './ui/CustomCard';
 import SideModal from './ui/SideModal';
+import SideMenuLink from './ui/SideMenuLink';
+import SideMenuTile from './ui/SideMenuTile';
+import CustomButton from './ui/CustomButton';
 
 export {
   LoadingOverlay,
@@ -20,4 +23,7 @@ export {
   CustomHeader,
   CustomCard,
   SideModal,
+  SideMenuLink,
+  SideMenuTile,
+  CustomButton,
 };
