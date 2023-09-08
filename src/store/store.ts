@@ -1,6 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {lockerReducer} from './slices/lockersSlice';
-import {rumorsReducer} from './slices/rumorsSlice';
+import {
+  rumorsReducer,
+  sortRumorsAscending,
+  sortRumorsDescending,
+  sortRumorsByDate,
+  openDeleteRumorModal,
+  closeDeleteRumorModal,
+} from './slices/rumorsSlice';
 import {
   sideMenuReducer,
   openSideMenu,
@@ -17,4 +24,12 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 
-export const actionCreators = {openSideMenu, closeSideMenu};
+export const actionCreators = {
+  openSideMenu,
+  closeSideMenu,
+  sortRumorsAscending,
+  sortRumorsDescending,
+  sortRumorsByDate,
+  openDeleteRumorModal,
+  closeDeleteRumorModal,
+};

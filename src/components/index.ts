@@ -12,6 +12,9 @@ import SideMenuLink from './ui/SideMenuLink';
 import SideMenuTile from './ui/SideMenuTile';
 import CustomButton from './ui/CustomButton';
 import RumorCard from './ui/RumorCard';
+import RumorsList from './ui/RumorsList';
+import RumorsBar from './ui/RumorsBar';
+import DeleteRumorModal from './ui/DeleteRumorModal';
 
 export {
   LoadingOverlay,
@@ -28,4 +31,7 @@ export {
   SideMenuTile,
   CustomButton,
   RumorCard,
+  RumorsList,
+  RumorsBar,
+  DeleteRumorModal,
 };

@@ -1,4 +1,4 @@
-import {Pressable, StyleSheet} from 'react-native';
+import {Pressable, StyleSheet, StyleProp, ViewStyle} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 type IconButtonType = {
@@ -6,12 +6,13 @@ type IconButtonType = {
   color: string | undefined;
   size: number;
   onPress?: () => void;
+  style?: StyleProp<ViewStyle>;
 };
 
-const IconButton = ({icon, color, size, onPress}: IconButtonType) => {
+const IconButton = ({icon, color, size, onPress, style}: IconButtonType) => {
   return (
     <Pressable
-      style={({pressed}) => [styles.button, pressed && styles.pressed]}
+      style={({pressed}) => [styles.button, pressed && styles.pressed, style]}
       onPress={onPress}>
       <Icon name={icon} color={color} size={size} />
     </Pressable>

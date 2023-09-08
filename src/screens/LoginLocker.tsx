@@ -36,7 +36,10 @@ const LoginLocker = (): JSX.Element => {
       ]}>
       {isLoading && !error ? (
         // Loading indicator I might replace with skeleton loader
-        <LoadingOverlay message="Logging you in..." />
+        <LoadingOverlay
+          message="Logging you in..."
+          color={INDUSTRIAL_COLORS.secondary900}
+        />
       ) : (
         <AuthContent isLogin onAuth={loginLockerHandler} />
       )}

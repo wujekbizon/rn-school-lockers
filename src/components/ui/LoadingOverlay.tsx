@@ -1,11 +1,26 @@
-import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  View,
+  StyleProp,
+  TextStyle,
+} from 'react-native';
 import {INDUSTRIAL_COLORS} from '../../constants/style';
 
-function LoadingOverlay({message}: {message: string}) {
+function LoadingOverlay({
+  message,
+  style,
+  color,
+}: {
+  message: string;
+  style?: StyleProp<TextStyle>;
+  color: string;
+}) {
   return (
     <View style={styles.rootContainer}>
-      <Text style={styles.message}>{message}</Text>
-      <ActivityIndicator size="large" color={INDUSTRIAL_COLORS.secondary900} />
+      <Text style={[styles.message, style]}>{message}</Text>
+      <ActivityIndicator size="large" color={color} />
     </View>
   );
 }
