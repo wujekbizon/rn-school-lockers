@@ -1,10 +1,11 @@
 import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
+import {INDUSTRIAL_COLORS} from '../../constants/style';
 
 function LoadingOverlay({message}: {message: string}) {
   return (
     <View style={styles.rootContainer}>
       <Text style={styles.message}>{message}</Text>
-      <ActivityIndicator size="large" />
+      <ActivityIndicator size="large" color={INDUSTRIAL_COLORS.secondary900} />
     </View>
   );
 }
@@ -19,6 +20,7 @@ const styles = StyleSheet.create({
     padding: 32,
   },
   message: {
+    color: INDUSTRIAL_COLORS.secondary900,
     fontSize: 16,
     marginBottom: 12,
   },

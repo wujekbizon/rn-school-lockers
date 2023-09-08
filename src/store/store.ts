@@ -1,5 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {lockerReducer} from './slices/lockersSlice';
+import {rumorsReducer} from './slices/rumorsSlice';
 import {
   sideMenuReducer,
   openSideMenu,
@@ -9,6 +10,7 @@ import {
 export const store = configureStore({
   reducer: {
     lockers: lockerReducer,
+    rumors: rumorsReducer,
     sideMenu: sideMenuReducer,
   },
 });

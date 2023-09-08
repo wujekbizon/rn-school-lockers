@@ -11,6 +11,7 @@ import SideModal from './ui/SideModal';
 import SideMenuLink from './ui/SideMenuLink';
 import SideMenuTile from './ui/SideMenuTile';
 import CustomButton from './ui/CustomButton';
+import RumorCard from './ui/RumorCard';
 
 export {
   LoadingOverlay,
@@ -26,4 +27,5 @@ export {
   SideMenuLink,
   SideMenuTile,
   CustomButton,
+  RumorCard,
 };

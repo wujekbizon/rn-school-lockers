@@ -40,3 +40,19 @@ export interface UpdateLockerResponse {
   locker: Locker;
   message: string;
 }
+
+export interface Rumor {
+  _id: string;
+  userId: string;
+  title: string;
+  content: string;
+  likes: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface RumorsState {
+  rumors: Rumor[];
+  isLoading: boolean;
+  error: null | {message: string};
+}
