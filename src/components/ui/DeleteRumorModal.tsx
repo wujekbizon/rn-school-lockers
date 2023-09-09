@@ -2,53 +2,39 @@ import {
   StyleSheet,
   Text,
   View,
-  Modal,
   Pressable,
   GestureResponderEvent,
 } from 'react-native';
-import {useTypedSelector} from '../../hooks/useTypedSelector';
-import {useActions} from '../../hooks/useActions';
-import {useAppDispatch} from '../../hooks/useAppDispatch';
-import {deleteRumor} from '../../store/thunks/deleteRumor';
-import {Rumor} from '../../types/lockersState';
+import {INDUSTRIAL_COLORS, SPACERS} from '../../constants/style';
 
-const DeleteRumorModal = ({_id}: {_id: string}) => {
-  const {isLoading, isDeleteRumorModalOpen} = useTypedSelector(
-    state => state.rumors,
-  );
-  const dispatch = useAppDispatch();
-  const {closeDeleteRumorModal} = useActions();
+type DeleteRumorModalProps = {
+  setIsDeleteModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  onPress: (event: GestureResponderEvent) => void;
+};
 
-  const handleDeleteRumor = () => {
-    console.log(_id);
-    // dispatch(deleteRumor({_id}));
-    // closeDeleteRumorModal();
-  };
-
+const DeleteRumorModal: React.FC<DeleteRumorModalProps> = ({
+  setIsDeleteModalOpen,
+  onPress,
+}) => {
   return (
     <View style={styles.modal}>
-      <Modal
-        animationType="slide"
-        visible={isDeleteRumorModalOpen}
-        onRequestClose={() => closeDeleteRumorModal()}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>
-              Are you sure you want to delete this rumor?
-            </Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={handleDeleteRumor}>
-              <Text style={styles.textStyle}>Delete Rumor</Text>
-            </Pressable>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => closeDeleteRumorModal()}>
-              <Text style={styles.textStyle}>Cancel</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
+      <Text style={styles.modalText}>
+        Are you sure you want to delete this rumor?
+      </Text>
+      <View style={styles.btns}>
+        <Pressable
+          android_ripple={{color: INDUSTRIAL_COLORS.error800}}
+          style={[styles.button, styles.buttonDelete]}
+          onPress={onPress}>
+          <Text style={styles.textStyle}>Delete Rumor</Text>
+        </Pressable>
+        <Pressable
+          android_ripple={{color: INDUSTRIAL_COLORS.secondary200}}
+          style={[styles.button, styles.buttonCancel]}
+          onPress={() => setIsDeleteModalOpen(false)}>
+          <Text style={styles.textStyle}>Cancel</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -56,20 +42,10 @@ export default DeleteRumorModal;
 const styles = StyleSheet.create({
   modal: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.3)',
-  },
-  centeredView: {
-    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 22,
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
+    gap: SPACERS.spacer3,
+    backgroundColor: INDUSTRIAL_COLORS.text100,
+    borderRadius: SPACERS.smBorder,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -79,21 +55,27 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  btns: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
   textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    color: INDUSTRIAL_COLORS.text100,
+    fontFamily: 'Open Sans Bold',
   },
   modalText: {
-    marginBottom: 15,
     textAlign: 'center',
+    fontFamily: 'Open Sans SemiBold',
+    color: INDUSTRIAL_COLORS.secondary900,
   },
   button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
+    padding: SPACERS.spacer0,
   },
-  buttonClose: {
-    backgroundColor: '#2196F3',
+  buttonCancel: {
+    backgroundColor: INDUSTRIAL_COLORS.primary100,
+  },
+  buttonDelete: {
+    backgroundColor: INDUSTRIAL_COLORS.error500,
   },
 });

@@ -54,7 +54,7 @@ export interface Rumor {
 export interface RumorsState {
   rumors: Rumor[];
   isLoading: boolean;
+  isDeleting: boolean;
   error: null | {message: string};
-  isDeleteRumorModalOpen: boolean;
   isRumorModalOpen: boolean;
 }

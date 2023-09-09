@@ -1,19 +1,18 @@
-import {StyleSheet, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 import RumorCard from './RumorCard';
-import DeleteRumorModal from './DeleteRumorModal';
 import {Rumor} from '../../types/lockersState';
-import {useTypedSelector} from '../../hooks/useTypedSelector';
 
-const RumorsList = ({data}: {data: Rumor[]}) => {
+type RumorListProps = {data: Rumor[]};
+
+const RumorsList: React.FC<RumorListProps> = ({data}) => {
   return (
     <FlatList
       data={data}
       keyExtractor={item => item._id}
       renderItem={({item}) => {
-        return <RumorCard {...item} />;
+        return <RumorCard item={item} />;
       }}
     />
   );
 };
 export default RumorsList;
-const styles = StyleSheet.create({});

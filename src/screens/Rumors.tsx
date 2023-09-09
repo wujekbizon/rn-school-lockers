@@ -8,11 +8,13 @@ import {INDUSTRIAL_COLORS, SPACERS} from '../constants/style';
 
 const Rumors = () => {
   const dispatch = useAppDispatch();
-  const {rumors, isLoading} = useTypedSelector(state => state.rumors);
+  const {rumors, isLoading, isDeleting} = useTypedSelector(
+    state => state.rumors,
+  );
 
   useEffect(() => {
     dispatch(fetchAllRumors({rejectValue: {message: 'Something went wrong!'}}));
-  }, []);
+  }, [isDeleting]);
 
   return (
     <SafeAreaView style={styles.container}>

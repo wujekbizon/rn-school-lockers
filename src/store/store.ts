@@ -1,12 +1,10 @@
-import {configureStore} from '@reduxjs/toolkit';
+import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import {lockerReducer} from './slices/lockersSlice';
 import {
   rumorsReducer,
   sortRumorsAscending,
   sortRumorsDescending,
   sortRumorsByDate,
-  openDeleteRumorModal,
-  closeDeleteRumorModal,
 } from './slices/rumorsSlice';
 import {
   sideMenuReducer,
@@ -20,6 +18,14 @@ export const store = configureStore({
     rumors: rumorsReducer,
     sideMenu: sideMenuReducer,
   },
+  middleware: getDefaultMiddleware => {
+    if (process.env.NODE_ENV === 'development') {
+      return getDefaultMiddleware({
+        serializableCheck: false,
+      });
+    }
+    return getDefaultMiddleware();
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
@@ -30,6 +36,4 @@ export const actionCreators = {
   sortRumorsAscending,
   sortRumorsDescending,
   sortRumorsByDate,
-  openDeleteRumorModal,
-  closeDeleteRumorModal,
 };

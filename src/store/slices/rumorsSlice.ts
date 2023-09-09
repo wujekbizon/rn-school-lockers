@@ -6,8 +6,8 @@ import {deleteRumor} from '../thunks/deleteRumor';
 const initialState: RumorsState = {
   rumors: [],
   isLoading: false,
+  isDeleting: false,
   error: null,
-  isDeleteRumorModalOpen: false,
   isRumorModalOpen: false,
 };
 
@@ -30,12 +30,6 @@ const rumorsSlice = createSlice({
         (a, b) =>
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
       );
-    },
-    openDeleteRumorModal(state: RumorsState) {
-      state.isDeleteRumorModalOpen = true;
-    },
-    closeDeleteRumorModal(state: RumorsState) {
-      state.isDeleteRumorModalOpen = false;
     },
   },
   extraReducers(builder) {
@@ -62,14 +56,17 @@ const rumorsSlice = createSlice({
     );
     // delete rumor
     builder.addCase(deleteRumor.pending, (state: RumorsState) => {
-      state.isLoading = true;
+      state.isDeleting = true;
     });
     builder.addCase(deleteRumor.fulfilled, (state: RumorsState, {payload}) => {
-      state.isLoading = false;
-      state.rumors = state.rumors.filter(rumor => rumor._id !== payload._id);
+      state.isDeleting = false;
+      const index = state.rumors.findIndex(rumor => rumor._id === payload._id);
+      if (index !== -1) {
+        state.rumors.splice(index, 1);
+      }
     });
     builder.addCase(deleteRumor.rejected, (state: RumorsState, {payload}) => {
-      state.isLoading = false;
+      state.isDeleting = false;
       if (!payload) {
         return;
       }
@@ -78,12 +75,7 @@ const rumorsSlice = createSlice({
   },
 });
 
-export const {
-  sortRumorsAscending,
-  sortRumorsDescending,
-  sortRumorsByDate,
-  openDeleteRumorModal,
-  closeDeleteRumorModal,
-} = rumorsSlice.actions;
+export const {sortRumorsAscending, sortRumorsDescending, sortRumorsByDate} =
+  rumorsSlice.actions;
 
 export const rumorsReducer = rumorsSlice.reducer;

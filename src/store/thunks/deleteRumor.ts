@@ -5,7 +5,7 @@ import {ValidationErrors, Rumor} from '../../types/lockersState';
 
 export const deleteRumor = createAsyncThunk<
   Rumor,
-  {_id: string} & Partial<Rumor>,
+  {_id: string},
   {
     rejectValue: ValidationErrors;
   }

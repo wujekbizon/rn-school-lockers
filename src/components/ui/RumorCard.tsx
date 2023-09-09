@@ -4,27 +4,26 @@ import type {Rumor} from '../../types/lockersState';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
 import IconButton from './IconButton';
 import {INDUSTRIAL_COLORS, SPACERS} from '../../constants/style';
-import {useAppDispatch} from '../../hooks/useAppDispatch';
-import {useActions} from '../../hooks/useActions';
 import DeleteRumorModal from './DeleteRumorModal';
+import {useAppDispatch} from '../../hooks/useAppDispatch';
+import {deleteRumor} from '../../store/thunks/deleteRumor';
+import LoadingOverlay from './LoadingOverlay';
 
-const RumorCard: React.FC<Rumor> = ({
-  content,
-  _id,
-  likes,
-  title,
-  userId,
-  createdAt,
-  updatedAt,
-}) => {
+type RumorCardProps = {
+  item: Rumor;
+};
+
+const RumorCard: React.FC<RumorCardProps> = ({item}) => {
+  const dispatch = useAppDispatch();
   const {currentLocker} = useTypedSelector(state => state.lockers);
-  const {isDeleteRumorModalOpen} = useTypedSelector(state => state.rumors);
-  const {openDeleteRumorModal} = useActions();
+  const {isDeleting} = useTypedSelector(state => state.rumors);
   const [liked, setLiked] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
+  const {content, _id, likes, title, userId, createdAt, updatedAt} = item;
 
   const handleLikeRumor = () => {
     setLiked(!liked);
-    console.log('dispatch rumor thunk with update');
   };
 
   const handleEditRumor = () => {
@@ -32,53 +31,65 @@ const RumorCard: React.FC<Rumor> = ({
     console.log('dispatch rumor thunk with edit');
   };
 
+  const handleDeleteRumor = () => {
+    dispatch(deleteRumor({_id}));
+    setIsDeleteModalOpen(false);
+  };
+
   return (
     <>
-      {<DeleteRumorModal _id={_id} />}
-      {!isDeleteRumorModalOpen && (
-        <View style={styles.card}>
-          <View style={styles.title}>
-            <Text style={styles.text}>{title}</Text>
-          </View>
-          <ScrollView style={styles.contentContainer}>
-            <Text style={styles.content}>{content}</Text>
-          </ScrollView>
-          <View style={styles.icons}>
-            <Text style={styles.text}>
-              Likes: <Text style={styles.likes}>{likes}</Text>
-            </Text>
-            {currentLocker?._id !== userId && (
-              <IconButton
-                icon={liked ? 'heart' : 'heart-outline'}
-                color={INDUSTRIAL_COLORS.secondary500}
-                size={24}
-                onPress={handleLikeRumor}
-                style={styles.customIconStyle}
-              />
-            )}
+      <View style={styles.card}>
+        {!isDeleteModalOpen && (
+          <View style={{flex: 1}}>
+            <View style={styles.title}>
+              <Text style={styles.text}>{title}</Text>
+            </View>
+            <ScrollView style={styles.contentContainer}>
+              <Text style={styles.content}>{content}</Text>
+            </ScrollView>
+            <View style={styles.icons}>
+              <Text style={styles.text}>
+                Likes: <Text style={styles.likes}>{likes}</Text>
+              </Text>
+              {currentLocker?._id !== userId && (
+                <IconButton
+                  icon={liked ? 'heart' : 'heart-outline'}
+                  color={INDUSTRIAL_COLORS.secondary500}
+                  size={24}
+                  onPress={handleLikeRumor}
+                  style={styles.customIconStyle}
+                />
+              )}
 
-            {currentLocker?._id === userId && (
-              <View style={styles.rightIcons}>
-                <IconButton
-                  icon="pencil"
-                  color={INDUSTRIAL_COLORS.secondary900}
-                  size={19}
-                  onPress={handleEditRumor}
-                  style={styles.customIconStyle}
-                />
-                <Text>|</Text>
-                <IconButton
-                  icon="trash-bin-sharp"
-                  color={INDUSTRIAL_COLORS.error800}
-                  size={18}
-                  onPress={() => openDeleteRumorModal()}
-                  style={styles.customIconStyle}
-                />
-              </View>
-            )}
+              {currentLocker?._id === userId && (
+                <View style={styles.rightIcons}>
+                  <IconButton
+                    icon="pencil"
+                    color={INDUSTRIAL_COLORS.secondary900}
+                    size={19}
+                    onPress={handleEditRumor}
+                    style={styles.customIconStyle}
+                  />
+                  <Text>|</Text>
+                  <IconButton
+                    icon="trash-bin-sharp"
+                    color={INDUSTRIAL_COLORS.error800}
+                    size={18}
+                    onPress={() => setIsDeleteModalOpen(true)}
+                    style={styles.customIconStyle}
+                  />
+                </View>
+              )}
+            </View>
           </View>
-        </View>
-      )}
+        )}
+        {isDeleteModalOpen && (
+          <DeleteRumorModal
+            onPress={handleDeleteRumor}
+            setIsDeleteModalOpen={setIsDeleteModalOpen}
+          />
+        )}
+      </View>
     </>
   );
 };
@@ -124,6 +135,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
+    color: INDUSTRIAL_COLORS.primary100,
   },
   likes: {
     fontFamily: 'Gluten Bold',
