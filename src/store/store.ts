@@ -5,6 +5,8 @@ import {
   sortRumorsAscending,
   sortRumorsDescending,
   sortRumorsByDate,
+  openRumorModal,
+  closeRumorModal,
 } from './slices/rumorsSlice';
 import {
   sideMenuReducer,
@@ -36,4 +38,6 @@ export const actionCreators = {
   sortRumorsAscending,
   sortRumorsDescending,
   sortRumorsByDate,
+  openRumorModal,
+  closeRumorModal,
 };

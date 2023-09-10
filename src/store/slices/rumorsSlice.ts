@@ -2,6 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 import {RumorsState} from '../../types/lockersState';
 import {fetchAllRumors} from '../thunks/getAllRumors';
 import {deleteRumor} from '../thunks/deleteRumor';
+import {createRumor} from '../thunks/createRumor';
 
 const initialState: RumorsState = {
   rumors: [],
@@ -29,8 +30,14 @@ const rumorsSlice = createSlice({
     sortRumorsByDate(state: RumorsState) {
       state.rumors = state.rumors.sort(
         (a, b) =>
-          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
       );
+    },
+    openRumorModal(state: RumorsState) {
+      state.isRumorModalOpen = true;
+    },
+    closeRumorModal(state: RumorsState) {
+      state.isRumorModalOpen = false;
     },
   },
   extraReducers(builder) {
@@ -70,10 +77,31 @@ const rumorsSlice = createSlice({
       }
       state.error = payload;
     });
+    // create rumor
+    builder.addCase(createRumor.pending, (state: RumorsState) => {
+      state.isLoading = true;
+    });
+    builder.addCase(createRumor.fulfilled, (state: RumorsState, {payload}) => {
+      state.isLoading = false;
+
+      state.rumors = [...state.rumors, payload.rumor];
+    });
+    builder.addCase(createRumor.rejected, (state: RumorsState, {payload}) => {
+      state.isLoading = false;
+      if (!payload) {
+        return;
+      }
+      state.error = payload;
+    });
   },
 });
 
-export const {sortRumorsAscending, sortRumorsDescending, sortRumorsByDate} =
-  rumorsSlice.actions;
+export const {
+  sortRumorsAscending,
+  sortRumorsDescending,
+  sortRumorsByDate,
+  openRumorModal,
+  closeRumorModal,
+} = rumorsSlice.actions;
 
 export const rumorsReducer = rumorsSlice.reducer;

@@ -52,7 +52,10 @@ const RegisterLocker = () => {
       ]}>
       {isLoading && !error ? (
         // Loading indicator I might replace with skeleton loader
-        <LoadingOverlay message="Creating new locker..." />
+        <LoadingOverlay
+          message="Creating new locker..."
+          color={INDUSTRIAL_COLORS.text100}
+        />
       ) : (
         <AuthContent isLogin={false} onAuth={registerLockerHandler} />
       )}

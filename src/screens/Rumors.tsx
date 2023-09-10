@@ -1,14 +1,14 @@
-import {StyleSheet, Text, SafeAreaView, View} from 'react-native';
+import {StyleSheet, SafeAreaView} from 'react-native';
 import {useEffect} from 'react';
 import {useTypedSelector} from '../hooks/useTypedSelector';
 import {fetchAllRumors} from '../store/thunks/getAllRumors';
 import {useAppDispatch} from '../hooks/useAppDispatch';
-import {LoadingOverlay, RumorsList, RumorsBar} from '../components';
+import {LoadingOverlay, RumorsList, RumorsBar, RumorModal} from '../components';
 import {INDUSTRIAL_COLORS, SPACERS} from '../constants/style';
 
 const Rumors = () => {
   const dispatch = useAppDispatch();
-  const {rumors, isLoading, isDeleting} = useTypedSelector(
+  const {rumors, isLoading, isRumorModalOpen} = useTypedSelector(
     state => state.rumors,
   );
 
@@ -27,6 +27,7 @@ const Rumors = () => {
       )}
       {!isLoading && <RumorsBar />}
       {!isLoading && <RumorsList data={rumors} />}
+      {!isLoading && <RumorModal />}
     </SafeAreaView>
   );
 };

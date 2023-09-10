@@ -1,5 +1,5 @@
-import type {KeyboardTypeOptions} from 'react-native';
-import type {Locker} from './lockersState';
+import type {KeyboardTypeOptions, StyleProp, TextStyle} from 'react-native';
+import type {Locker, Rumor} from './lockersState';
 
 export interface InputProps {
   label: string;
@@ -8,6 +8,8 @@ export interface InputProps {
   onUpdateValue: (text: string) => void | undefined;
   value: string | undefined;
   isInvalid: boolean;
+  style?: StyleProp<TextStyle>;
+  labelStyle?: StyleProp<TextStyle>;
 }
 
 export type AuthFormProps = {

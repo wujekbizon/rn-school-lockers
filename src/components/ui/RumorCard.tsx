@@ -11,9 +11,6 @@ import {useTypedSelector} from '../../hooks/useTypedSelector';
 import IconButton from './IconButton';
 import {INDUSTRIAL_COLORS, SPACERS} from '../../constants/style';
 import DeleteRumorModal from './DeleteRumorModal';
-import {useAppDispatch} from '../../hooks/useAppDispatch';
-import {deleteRumor} from '../../store/thunks/deleteRumor';
-import LoadingOverlay from './LoadingOverlay';
 
 type RumorCardProps = {
   item: Rumor;
@@ -21,9 +18,7 @@ type RumorCardProps = {
 };
 
 const RumorCard: React.FC<RumorCardProps> = ({item, onDeleteRumor}) => {
-  const dispatch = useAppDispatch();
   const {currentLocker} = useTypedSelector(state => state.lockers);
-  const {isDeleting} = useTypedSelector(state => state.rumors);
   const [liked, setLiked] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const {content, _id, likes, title, userId, createdAt, updatedAt} = item;

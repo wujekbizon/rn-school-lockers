@@ -4,7 +4,11 @@ import {Button, Input} from '../index';
 import type {Locker} from '../../types/lockersState';
 import type {AuthFormProps} from '../../types/auth';
 
-const AuthForm = ({isLogin, onSubmit, credentialsInvalid}: AuthFormProps) => {
+const AuthForm: React.FC<AuthFormProps> = ({
+  isLogin,
+  onSubmit,
+  credentialsInvalid,
+}) => {
   const [inputs, setInputs] = useState<Locker>({
     email: '',
     password: '',

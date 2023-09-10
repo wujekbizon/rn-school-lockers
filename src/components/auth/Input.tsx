@@ -9,19 +9,23 @@ const Input = ({
   onUpdateValue,
   value,
   isInvalid,
+  style,
+  labelStyle,
 }: InputProps) => {
   return (
     <View style={styles.inputContainer}>
-      <Text style={[styles.label, isInvalid && styles.labelInvalid]}>
+      <Text
+        style={[styles.label, labelStyle, isInvalid && styles.labelInvalid]}>
         {label}
       </Text>
       <TextInput
-        style={[styles.input, isInvalid && styles.inputInvalid]}
+        style={[styles.input, style, isInvalid && styles.inputInvalid]}
         autoCapitalize="none"
         keyboardType={keyboardType}
         secureTextEntry={secure}
         onChangeText={onUpdateValue}
         value={value}
+        maxLength={150}
       />
     </View>
   );
@@ -34,7 +38,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   label: {
-    color: 'white',
+    color: INDUSTRIAL_COLORS.text100,
     marginBottom: 4,
   },
   labelInvalid: {

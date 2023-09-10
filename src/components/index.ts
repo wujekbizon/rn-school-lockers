@@ -15,6 +15,9 @@ import RumorCard from './ui/RumorCard';
 import RumorsList from './ui/RumorsList';
 import RumorsBar from './ui/RumorsBar';
 import DeleteRumorModal from './ui/DeleteRumorModal';
+import RumorModal from './ui/RumorModal';
+import RumorForm from './ui/RumorForm';
+import RumorFormButtons from './ui/RumorFormButtons';
 
 export {
   LoadingOverlay,
@@ -34,4 +37,7 @@ export {
   RumorsList,
   RumorsBar,
   DeleteRumorModal,
+  RumorModal,
+  RumorForm,
+  RumorFormButtons,
 };

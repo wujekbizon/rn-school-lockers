@@ -6,13 +6,13 @@ import {useAppDispatch} from '../../hooks/useAppDispatch';
 import {fetchAllRumors} from '../../store/thunks/getAllRumors';
 
 const RumorsBar = () => {
-  const {sortRumorsAscending, sortRumorsDescending, sortRumorsByDate} =
-    useActions();
+  const {
+    sortRumorsAscending,
+    sortRumorsDescending,
+    sortRumorsByDate,
+    openRumorModal,
+  } = useActions();
   const dispatch = useAppDispatch();
-
-  const handleAddRumor = () => {
-    console.log('Add Rumor');
-  };
 
   return (
     <View style={styles.menu}>
@@ -42,7 +42,7 @@ const RumorsBar = () => {
           icon="create"
           color={INDUSTRIAL_COLORS.text100}
           size={24}
-          onPress={handleAddRumor}
+          onPress={() => openRumorModal()}
         />
         <IconButton
           icon="sync"
