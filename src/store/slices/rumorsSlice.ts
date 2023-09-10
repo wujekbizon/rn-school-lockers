@@ -5,6 +5,7 @@ import {deleteRumor} from '../thunks/deleteRumor';
 
 const initialState: RumorsState = {
   rumors: [],
+  modifiedRumorsIndexes: [],
   isLoading: false,
   isDeleting: false,
   error: null,
@@ -60,10 +61,7 @@ const rumorsSlice = createSlice({
     });
     builder.addCase(deleteRumor.fulfilled, (state: RumorsState, {payload}) => {
       state.isDeleting = false;
-      const index = state.rumors.findIndex(rumor => rumor._id === payload._id);
-      if (index !== -1) {
-        state.rumors.splice(index, 1);
-      }
+      state.rumors = state.rumors.filter(rumor => rumor._id !== payload._id);
     });
     builder.addCase(deleteRumor.rejected, (state: RumorsState, {payload}) => {
       state.isDeleting = false;

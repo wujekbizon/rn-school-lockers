@@ -1,4 +1,10 @@
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  GestureResponderEvent,
+} from 'react-native';
 import {useState} from 'react';
 import type {Rumor} from '../../types/lockersState';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
@@ -11,15 +17,15 @@ import LoadingOverlay from './LoadingOverlay';
 
 type RumorCardProps = {
   item: Rumor;
+  onDeleteRumor: (event: GestureResponderEvent) => void;
 };
 
-const RumorCard: React.FC<RumorCardProps> = ({item}) => {
+const RumorCard: React.FC<RumorCardProps> = ({item, onDeleteRumor}) => {
   const dispatch = useAppDispatch();
   const {currentLocker} = useTypedSelector(state => state.lockers);
   const {isDeleting} = useTypedSelector(state => state.rumors);
   const [liked, setLiked] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-
   const {content, _id, likes, title, userId, createdAt, updatedAt} = item;
 
   const handleLikeRumor = () => {
@@ -29,11 +35,6 @@ const RumorCard: React.FC<RumorCardProps> = ({item}) => {
   const handleEditRumor = () => {
     console.log(_id);
     console.log('dispatch rumor thunk with edit');
-  };
-
-  const handleDeleteRumor = () => {
-    dispatch(deleteRumor({_id}));
-    setIsDeleteModalOpen(false);
   };
 
   return (
@@ -85,7 +86,7 @@ const RumorCard: React.FC<RumorCardProps> = ({item}) => {
         )}
         {isDeleteModalOpen && (
           <DeleteRumorModal
-            onPress={handleDeleteRumor}
+            onPress={onDeleteRumor}
             setIsDeleteModalOpen={setIsDeleteModalOpen}
           />
         )}

@@ -5,14 +5,15 @@ import {ValidationErrors, Rumor} from '../../types/lockersState';
 
 export const deleteRumor = createAsyncThunk<
   Rumor,
-  {_id: string},
+  Rumor,
   {
     rejectValue: ValidationErrors;
   }
->('rumor/delete', async ({_id}, thunkApi) => {
+>('rumor/delete', async (item, thunkApi) => {
   try {
-    const response = await rumorsInstance.delete<Rumor>(`/rumors/${_id}`);
-    return response.data;
+    await rumorsInstance.delete<Rumor>(`/rumors/${item._id}`);
+    // here is important what we return
+    return item;
   } catch (err: any) {
     let error: AxiosError<ValidationErrors> = err;
     if (!error.response) {

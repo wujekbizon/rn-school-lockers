@@ -14,7 +14,7 @@ const Rumors = () => {
 
   useEffect(() => {
     dispatch(fetchAllRumors({rejectValue: {message: 'Something went wrong!'}}));
-  }, [isDeleting]);
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>

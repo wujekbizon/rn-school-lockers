@@ -6,6 +6,8 @@ import {
   GestureResponderEvent,
 } from 'react-native';
 import {INDUSTRIAL_COLORS, SPACERS} from '../../constants/style';
+import {useTypedSelector} from '../../hooks/useTypedSelector';
+import LoadingOverlay from './LoadingOverlay';
 
 type DeleteRumorModalProps = {
   setIsDeleteModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,25 +18,37 @@ const DeleteRumorModal: React.FC<DeleteRumorModalProps> = ({
   setIsDeleteModalOpen,
   onPress,
 }) => {
+  const {isDeleting} = useTypedSelector(state => state.rumors);
+
   return (
     <View style={styles.modal}>
-      <Text style={styles.modalText}>
-        Are you sure you want to delete this rumor?
-      </Text>
-      <View style={styles.btns}>
-        <Pressable
-          android_ripple={{color: INDUSTRIAL_COLORS.error800}}
-          style={[styles.button, styles.buttonDelete]}
-          onPress={onPress}>
-          <Text style={styles.textStyle}>Delete Rumor</Text>
-        </Pressable>
-        <Pressable
-          android_ripple={{color: INDUSTRIAL_COLORS.secondary200}}
-          style={[styles.button, styles.buttonCancel]}
-          onPress={() => setIsDeleteModalOpen(false)}>
-          <Text style={styles.textStyle}>Cancel</Text>
-        </Pressable>
-      </View>
+      {!isDeleting && (
+        <>
+          <Text style={styles.modalText}>
+            Are you sure you want to delete this rumor?
+          </Text>
+          <View style={styles.btns}>
+            <Pressable
+              android_ripple={{color: INDUSTRIAL_COLORS.error800}}
+              style={[styles.button, styles.buttonDelete]}
+              onPress={onPress}>
+              <Text style={styles.textStyle}>Delete Rumor</Text>
+            </Pressable>
+            <Pressable
+              android_ripple={{color: INDUSTRIAL_COLORS.secondary200}}
+              style={[styles.button, styles.buttonCancel]}
+              onPress={() => setIsDeleteModalOpen(false)}>
+              <Text style={styles.textStyle}>Cancel</Text>
+            </Pressable>
+          </View>
+        </>
+      )}
+      {isDeleting && (
+        <LoadingOverlay
+          message="Deleting rumor..."
+          color={INDUSTRIAL_COLORS.secondary900}
+        />
+      )}
     </View>
   );
 };
