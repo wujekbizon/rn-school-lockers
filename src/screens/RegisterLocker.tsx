@@ -13,7 +13,7 @@ import {INDUSTRIAL_COLORS} from '../constants/style';
 
 const RegisterLocker = () => {
   const {isLoading, error, isRegistered} = useTypedSelector(
-    state => state.lockers,
+    state => state.auth,
   );
   const dispatch = useAppDispatch();
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();

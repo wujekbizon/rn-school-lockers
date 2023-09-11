@@ -1,5 +1,5 @@
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
-import {lockerReducer} from './slices/lockersSlice';
+import {authReducer} from './slices/authSlice';
 import {
   rumorsReducer,
   sortRumorsAscending,
@@ -16,7 +16,7 @@ import {
 
 export const store = configureStore({
   reducer: {
-    lockers: lockerReducer,
+    auth: authReducer,
     rumors: rumorsReducer,
     sideMenu: sideMenuReducer,
   },

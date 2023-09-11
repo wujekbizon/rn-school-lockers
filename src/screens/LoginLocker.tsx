@@ -10,7 +10,7 @@ import {Locker} from '../types/lockersState';
 import {INDUSTRIAL_COLORS} from '../constants/style';
 
 const LoginLocker = (): JSX.Element => {
-  const {isLoading, error} = useTypedSelector(state => state.lockers);
+  const {isLoading, error} = useTypedSelector(state => state.auth);
   const dispatch = useAppDispatch();
 
   const loginLockerHandler = (credentials: Locker) => {

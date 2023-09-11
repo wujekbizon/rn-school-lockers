@@ -6,7 +6,7 @@ import {CustomCard, SideModal} from '../components';
 import {INDUSTRIAL_COLORS, SPACERS} from '../constants/style';
 
 const LockerDashboard = () => {
-  const {currentLocker} = useTypedSelector(state => state.lockers);
+  const {currentLocker} = useTypedSelector(state => state.auth);
 
   useEffect(() => {
     Toast.show({

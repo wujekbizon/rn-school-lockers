@@ -5,7 +5,7 @@ import AuthenticatedAdminStack from './AuthenticatedAdminStack';
 import AuthenticatedStack from './AuthenticatedStack';
 
 const Navigation = (): JSX.Element => {
-  const {isAuthenticated, isAdmin} = useTypedSelector(state => state.lockers);
+  const {isAuthenticated, isAdmin} = useTypedSelector(state => state.auth);
 
   return (
     <NavigationContainer>

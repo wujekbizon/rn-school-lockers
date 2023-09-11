@@ -16,7 +16,7 @@ import {
 import {INDUSTRIAL_COLORS} from '../../constants/style';
 
 const AuthContent = ({isLogin, onAuth}: AuthContentProps) => {
-  const {isRegistered} = useTypedSelector(state => state.lockers);
+  const {isRegistered} = useTypedSelector(state => state.auth);
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   const [credentialsInvalid, setCredentialsInvalid] = useState({
     email: false,

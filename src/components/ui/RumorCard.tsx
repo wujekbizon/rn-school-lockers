@@ -18,7 +18,7 @@ type RumorCardProps = {
 };
 
 const RumorCard: React.FC<RumorCardProps> = ({item, onDeleteRumor}) => {
-  const {currentLocker} = useTypedSelector(state => state.lockers);
+  const {currentLocker} = useTypedSelector(state => state.auth);
   const [liked, setLiked] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const {content, _id, likes, title, userId, createdAt, updatedAt} = item;

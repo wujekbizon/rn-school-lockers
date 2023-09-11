@@ -14,8 +14,8 @@ const initialState: AuthLockerState = {
   isRegistered: false,
 };
 
-const lockerSlice = createSlice({
-  name: 'lockers',
+const authSlice = createSlice({
+  name: 'auth',
   initialState,
   reducers: {},
   extraReducers(builder) {
@@ -91,4 +91,4 @@ const lockerSlice = createSlice({
   },
 });
 
-export const lockerReducer = lockerSlice.reducer;
+export const authReducer = authSlice.reducer;

@@ -4,7 +4,7 @@ import {useTypedSelector} from '../hooks/useTypedSelector';
 import Toast from 'react-native-toast-message';
 
 const AdminDashboard = () => {
-  const {currentLocker, isAdmin} = useTypedSelector(state => state.lockers);
+  const {currentLocker, isAdmin} = useTypedSelector(state => state.auth);
 
   useEffect(() => {
     Toast.show({

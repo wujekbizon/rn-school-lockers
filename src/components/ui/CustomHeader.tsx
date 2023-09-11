@@ -10,7 +10,7 @@ import {useActions} from '../../hooks/useActions';
 
 const CustomHeader = () => {
   const dispatch = useAppDispatch();
-  const {currentLocker} = useTypedSelector(state => state.lockers);
+  const {currentLocker} = useTypedSelector(state => state.auth);
   const {openSideMenu} = useActions();
 
   return (
