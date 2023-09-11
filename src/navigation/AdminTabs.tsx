@@ -5,6 +5,7 @@ import {
   AdminSideMenu,
   AdminUsers,
   AdminSettings,
+  AdminNewsmongers,
 } from '../screens';
 
 const Tab = createBottomTabNavigator();
@@ -31,6 +32,17 @@ const AdminTabs = () => {
           tabBarLabel: 'Users',
           tabBarIcon: ({color, size}) => (
             <Icon color={color} size={size} name="people-sharp" />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="AdminNewsmongers"
+        component={AdminNewsmongers}
+        options={{
+          headerShown: false,
+          tabBarLabel: 'Newsletters',
+          tabBarIcon: ({color, size}) => (
+            <Icon color={color} size={size} name="newspaper" />
           ),
         }}
       />

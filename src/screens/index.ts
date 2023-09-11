@@ -13,6 +13,7 @@ import LockerCalendar from './LockerCalendar';
 import LockerPortfolio from './LockerPortfolio';
 import SystemMessages from './SystemMessages';
 import LockerContacts from './LockerContacts';
+import AdminNewsmongers from './AdminNewsmongers';
 
 export {
   LoginLocker,
@@ -30,4 +31,5 @@ export {
   LockerPortfolio,
   SystemMessages,
   LockerContacts,
+  AdminNewsmongers,
 };
