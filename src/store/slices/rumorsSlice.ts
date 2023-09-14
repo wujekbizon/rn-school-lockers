@@ -6,9 +6,10 @@ import {createRumor} from '../thunks/createRumor';
 
 const initialState: RumorsState = {
   rumors: [],
-  modifiedRumorsIndexes: [],
+  editedRumor: undefined,
   isLoading: false,
   isDeleting: false,
+  isEditing: false,
   error: null,
   isRumorModalOpen: false,
 };
@@ -38,6 +39,14 @@ const rumorsSlice = createSlice({
     },
     closeRumorModal(state: RumorsState) {
       state.isRumorModalOpen = false;
+      state.isEditing = false;
+    },
+    getEditedRumor(state: RumorsState, {payload}) {
+      state.isEditing = true;
+      state.editedRumor = state.rumors.find(rumor => rumor._id === payload);
+    },
+    updateEditedRumor(state: RumorsState, {payload}) {
+      state.editedRumor = payload;
     },
   },
   extraReducers(builder) {
@@ -102,6 +111,8 @@ export const {
   sortRumorsByDate,
   openRumorModal,
   closeRumorModal,
+  getEditedRumor,
+  updateEditedRumor,
 } = rumorsSlice.actions;
 
 export const rumorsReducer = rumorsSlice.reducer;

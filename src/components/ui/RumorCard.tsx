@@ -15,9 +15,14 @@ import DeleteRumorModal from './DeleteRumorModal';
 type RumorCardProps = {
   item: Rumor;
   onDeleteRumor: (event: GestureResponderEvent) => void;
+  onEditRumor: () => void;
 };
 
-const RumorCard: React.FC<RumorCardProps> = ({item, onDeleteRumor}) => {
+const RumorCard: React.FC<RumorCardProps> = ({
+  item,
+  onDeleteRumor,
+  onEditRumor,
+}) => {
   const {currentLocker} = useTypedSelector(state => state.auth);
   const [liked, setLiked] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -25,11 +30,6 @@ const RumorCard: React.FC<RumorCardProps> = ({item, onDeleteRumor}) => {
 
   const handleLikeRumor = () => {
     setLiked(!liked);
-  };
-
-  const handleEditRumor = () => {
-    console.log(_id);
-    console.log('dispatch rumor thunk with edit');
   };
 
   return (
@@ -63,7 +63,7 @@ const RumorCard: React.FC<RumorCardProps> = ({item, onDeleteRumor}) => {
                     icon="pencil"
                     color={INDUSTRIAL_COLORS.secondary900}
                     size={19}
-                    onPress={handleEditRumor}
+                    onPress={onEditRumor}
                     style={styles.customIconStyle}
                   />
                   <Text>|</Text>

@@ -3,14 +3,22 @@ import RumorCard from './RumorCard';
 import {Rumor} from '../../types/lockersState';
 import {useAppDispatch} from '../../hooks/useAppDispatch';
 import {deleteRumor} from '../../store/thunks/deleteRumor';
+import {useActions} from '../../hooks/useActions';
 
 type RumorListProps = {data: Rumor[]};
 
 const RumorsList: React.FC<RumorListProps> = ({data}) => {
   const dispatch = useAppDispatch();
+  const {openRumorModal, getEditedRumor} = useActions();
 
   const handleDeleteRumor = (item: Rumor) => {
     dispatch(deleteRumor(item));
+  };
+
+  const handleEditRumor = (item: Rumor) => {
+    console.log(item._id);
+    openRumorModal();
+    getEditedRumor(item._id);
   };
 
   return (
@@ -22,6 +30,7 @@ const RumorsList: React.FC<RumorListProps> = ({data}) => {
           <RumorCard
             item={item}
             onDeleteRumor={() => handleDeleteRumor(item)}
+            onEditRumor={() => handleEditRumor(item)}
           />
         );
       }}

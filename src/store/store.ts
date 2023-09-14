@@ -10,6 +10,8 @@ import {
   sortRumorsByDate,
   openRumorModal,
   closeRumorModal,
+  getEditedRumor,
+  updateEditedRumor,
 } from './slices/rumorsSlice';
 import {
   sideMenuReducer,
@@ -48,6 +50,8 @@ export const actionCreators = {
   sortRumorsByDate,
   openRumorModal,
   closeRumorModal,
+  getEditedRumor,
+  updateEditedRumor,
 };
 export {useFetchLockersQuery} from '../store/apis/lockersApi';
 export {useFetchSubscribersQuery} from '../store/apis/subscribersApi';

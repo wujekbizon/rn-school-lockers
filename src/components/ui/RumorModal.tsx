@@ -1,9 +1,8 @@
 import {useState} from 'react';
-import {StyleSheet, View, Modal} from 'react-native';
+import {StyleSheet, View, Modal, Text} from 'react-native';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
 import {useActions} from '../../hooks/useActions';
 import {useAppDispatch} from '../../hooks/useAppDispatch';
-import {isSimpleString} from '../../utils/verifyCredentials';
 import {INDUSTRIAL_COLORS, SPACERS} from '../../constants/style';
 import RumorForm from './RumorForm';
 import {createRumor} from '../../store/thunks/createRumor';
@@ -24,8 +23,8 @@ const RumorModal = () => {
     title: string;
     content: string;
   }) => {
-    const titleIsValid = isSimpleString(title);
-    const contentIsValid = isSimpleString(content);
+    const titleIsValid = title;
+    const contentIsValid = content;
 
     if (!titleIsValid || !contentIsValid) {
       setCredentialsInvalid({

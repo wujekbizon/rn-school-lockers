@@ -7,12 +7,14 @@ import {
 } from 'react-native';
 import {INDUSTRIAL_COLORS, SPACERS} from '../../constants/style';
 import {useActions} from '../../hooks/useActions';
+import {useTypedSelector} from '../../hooks/useTypedSelector';
 
 interface RumorsFormButtonsInterface {
   onPress: (event: GestureResponderEvent) => void;
 }
 
 const RumorFormButtons: React.FC<RumorsFormButtonsInterface> = ({onPress}) => {
+  const {isEditing} = useTypedSelector(state => state.rumors);
   const {closeRumorModal} = useActions();
   return (
     <View style={styles.btns}>
@@ -20,7 +22,9 @@ const RumorFormButtons: React.FC<RumorsFormButtonsInterface> = ({onPress}) => {
         android_ripple={{color: INDUSTRIAL_COLORS.secondary200}}
         style={[styles.button, styles.buttonAdd]}
         onPress={onPress}>
-        <Text style={styles.textStyle}>Add Rumor</Text>
+        <Text style={styles.textStyle}>
+          {isEditing ? 'Edit Rumor' : 'Add Rumor'}
+        </Text>
       </Pressable>
       <Pressable
         android_ripple={{color: INDUSTRIAL_COLORS.error800}}
