@@ -1,12 +1,21 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {RumorsState} from '../../types/lockersState';
+import {Rumor, RumorsState} from '../../types/lockersState';
 import {fetchAllRumors} from '../thunks/getAllRumors';
 import {deleteRumor} from '../thunks/deleteRumor';
 import {createRumor} from '../thunks/createRumor';
+import {editRumor} from '../thunks/editRumor';
 
 const initialState: RumorsState = {
   rumors: [],
-  editedRumor: undefined,
+  editedRumor: {
+    _id: '',
+    title: '',
+    content: '',
+    createdAt: '',
+    updatedAt: '',
+    likes: 0,
+    userId: '',
+  },
   isLoading: false,
   isDeleting: false,
   isEditing: false,
@@ -39,11 +48,12 @@ const rumorsSlice = createSlice({
     },
     closeRumorModal(state: RumorsState) {
       state.isRumorModalOpen = false;
-      state.isEditing = false;
     },
     getEditedRumor(state: RumorsState, {payload}) {
       state.isEditing = true;
-      state.editedRumor = state.rumors.find(rumor => rumor._id === payload);
+      state.editedRumor = state.rumors.find(
+        rumor => rumor._id === payload,
+      ) as Rumor;
     },
     updateEditedRumor(state: RumorsState, {payload}) {
       state.editedRumor = payload;
@@ -97,6 +107,25 @@ const rumorsSlice = createSlice({
     });
     builder.addCase(createRumor.rejected, (state: RumorsState, {payload}) => {
       state.isLoading = false;
+      if (!payload) {
+        return;
+      }
+      state.error = payload;
+    });
+    // edit rumor
+    builder.addCase(editRumor.pending, (state: RumorsState) => {
+      state.isLoading = true;
+      state.isEditing = true;
+    });
+    builder.addCase(editRumor.fulfilled, (state: RumorsState, {payload}) => {
+      state.isLoading = false;
+      state.isEditing = false;
+      state.rumors = state.rumors.filter(rumor => rumor._id !== payload._id);
+      state.rumors.push(payload);
+    });
+    builder.addCase(editRumor.rejected, (state: RumorsState, {payload}) => {
+      state.isLoading = false;
+      state.isEditing = false;
       if (!payload) {
         return;
       }

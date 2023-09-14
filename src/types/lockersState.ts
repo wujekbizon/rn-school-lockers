@@ -53,7 +53,7 @@ export interface Rumor {
 
 export interface RumorsState {
   rumors: Rumor[];
-  editedRumor?: Rumor;
+  editedRumor: Rumor;
   isLoading: boolean;
   isDeleting: boolean;
   isEditing: boolean;

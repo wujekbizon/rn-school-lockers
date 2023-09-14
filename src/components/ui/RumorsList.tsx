@@ -16,7 +16,6 @@ const RumorsList: React.FC<RumorListProps> = ({data}) => {
   };
 
   const handleEditRumor = (item: Rumor) => {
-    console.log(item._id);
     openRumorModal();
     getEditedRumor(item._id);
   };

@@ -8,7 +8,7 @@ import {INDUSTRIAL_COLORS, SPACERS} from '../constants/style';
 
 const Rumors = () => {
   const dispatch = useAppDispatch();
-  const {rumors, isLoading, isRumorModalOpen} = useTypedSelector(
+  const {rumors, isLoading, isEditing} = useTypedSelector(
     state => state.rumors,
   );
 
@@ -20,7 +20,7 @@ const Rumors = () => {
     <SafeAreaView style={styles.container}>
       {isLoading && (
         <LoadingOverlay
-          message="Loading rumors..."
+          message={isEditing ? 'Updating rumor...' : 'Loading rumors...'}
           style={styles.customLoadingOverlay}
           color={INDUSTRIAL_COLORS.text100}
         />

@@ -1,11 +1,11 @@
 import {StyleSheet, Text, View, KeyboardAvoidingView} from 'react-native';
 import {useState, useEffect} from 'react';
-import Input from '../auth/Input';
-import {RumorFormProps} from '../../types/rumorsState';
-import {INDUSTRIAL_COLORS, SPACERS} from '../../constants/style';
-import RumorFormButtons from './RumorFormButtons';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
 import {useActions} from '../../hooks/useActions';
+import {RumorFormProps} from '../../types/rumorsState';
+import {INDUSTRIAL_COLORS, SPACERS} from '../../constants/style';
+import Input from '../auth/Input';
+import RumorFormButtons from './RumorFormButtons';
 
 const RumorForm: React.FC<RumorFormProps> = ({
   credentialsInvalid,

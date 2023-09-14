@@ -1,7 +1,7 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import type {AxiosError} from 'axios';
-import {rumorsInstance} from '../../api/axiosInstances';
 import {ValidationErrors, Rumor} from '../../types/lockersState';
+import {rumorsInstance} from '../../api/axiosInstances';
 
 export const editRumor = createAsyncThunk<
   Rumor,
@@ -11,10 +11,9 @@ export const editRumor = createAsyncThunk<
   }
 >('rumor/edit', async (item, thunkApi) => {
   try {
-    const response = await rumorsInstance.patch<Rumor>(`/rumors/${item._id}`);
+    await rumorsInstance.patch<Rumor>(`/rumors/${item._id}`, item);
     // here is important what we return
-    console.log(response.data);
-    return response.data;
+    return item;
   } catch (err: any) {
     let error: AxiosError<ValidationErrors> = err;
     if (!error.response) {

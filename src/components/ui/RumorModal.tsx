@@ -1,15 +1,19 @@
 import {useState} from 'react';
-import {StyleSheet, View, Modal, Text} from 'react-native';
+import {StyleSheet, View, Modal} from 'react-native';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
 import {useActions} from '../../hooks/useActions';
 import {useAppDispatch} from '../../hooks/useAppDispatch';
 import {INDUSTRIAL_COLORS, SPACERS} from '../../constants/style';
 import RumorForm from './RumorForm';
 import {createRumor} from '../../store/thunks/createRumor';
+import {editRumor} from '../../store/thunks/editRumor';
+import {isSimpleString} from '../../utils/verifyCredentials';
 
 const RumorModal = () => {
   const dispatch = useAppDispatch();
-  const {isRumorModalOpen} = useTypedSelector(state => state.rumors);
+  const {isRumorModalOpen, isEditing, editedRumor} = useTypedSelector(
+    state => state.rumors,
+  );
   const {closeRumorModal} = useActions();
   const [credentialsInvalid, setCredentialsInvalid] = useState({
     title: false,
@@ -23,8 +27,8 @@ const RumorModal = () => {
     title: string;
     content: string;
   }) => {
-    const titleIsValid = title;
-    const contentIsValid = content;
+    const titleIsValid = isSimpleString(title);
+    const contentIsValid = isSimpleString(content);
 
     if (!titleIsValid || !contentIsValid) {
       setCredentialsInvalid({
@@ -33,8 +37,17 @@ const RumorModal = () => {
       });
       return;
     }
-    closeRumorModal();
-    dispatch(createRumor({title, content}));
+
+    if (isEditing) {
+      const updatedRumor = {...editedRumor, title, content};
+      dispatch(editRumor(updatedRumor));
+      setCredentialsInvalid({title: false, content: false});
+      closeRumorModal();
+    } else {
+      dispatch(createRumor({title, content}));
+      setCredentialsInvalid({title: false, content: false});
+      closeRumorModal();
+    }
   };
 
   return (
