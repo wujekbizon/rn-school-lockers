@@ -11,6 +11,7 @@ import {useTypedSelector} from '../../hooks/useTypedSelector';
 import IconButton from './IconButton';
 import {INDUSTRIAL_COLORS, SPACERS} from '../../constants/style';
 import DeleteRumorModal from './DeleteRumorModal';
+import {calculateDaysAgo} from '../../utils/calculateDaysAgo';
 
 type RumorCardProps = {
   item: Rumor;
@@ -23,7 +24,7 @@ const RumorCard: React.FC<RumorCardProps> = ({
   onDeleteRumor,
   onEditRumor,
 }) => {
-  const {currentLocker} = useTypedSelector(state => state.auth);
+  const {currentLocker, lockers} = useTypedSelector(state => state.auth);
   const [liked, setLiked] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const {content, _id, likes, title, userId, createdAt, updatedAt} = item;
@@ -31,6 +32,8 @@ const RumorCard: React.FC<RumorCardProps> = ({
   const handleLikeRumor = () => {
     setLiked(!liked);
   };
+
+  const humanReadableDate = calculateDaysAgo(createdAt);
 
   return (
     <>
@@ -77,6 +80,13 @@ const RumorCard: React.FC<RumorCardProps> = ({
                 </View>
               )}
             </View>
+            <View style={styles.date}>
+              <Text style={styles.dateText}>
+                Created {humanReadableDate === 0 && 'today'}
+                {humanReadableDate === 1 && 'yestarday'}
+                {humanReadableDate >= 2 && `${humanReadableDate} days ago.`}
+              </Text>
+            </View>
           </View>
         )}
         {isDeleteModalOpen && (
@@ -100,6 +110,8 @@ const styles = StyleSheet.create({
     padding: SPACERS.spacer1,
   },
   title: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: SPACERS.spacer0,
     borderBottomWidth: 1,
     borderBottomColor: INDUSTRIAL_COLORS.gray400,
@@ -140,5 +152,11 @@ const styles = StyleSheet.create({
   },
   customIconStyle: {
     margin: 0,
+  },
+  date: {paddingTop: SPACERS.spacer0},
+  dateText: {
+    fontSize: 10,
+    fontFamily: 'Open Sans SemiBold',
+    color: INDUSTRIAL_COLORS.primary500,
   },
 });
